@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SgcgsApplication<sgcgs>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "edu.ifes.ci.si.les.sgcgs.SgcgsApplication",
+            "projectName": "sgcgs",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

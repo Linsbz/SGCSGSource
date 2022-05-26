@@ -1,0 +1,22 @@
+.colored-selector {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    width: 200px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.colored-selector > span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.colored-selector ul {
+    list-style-type: none;    
+}
+.colored-selector li {
+    padding: 10px;
+}
+.colored-selector li:hover {
+    background-color: var(--color-primary-dark);
+}

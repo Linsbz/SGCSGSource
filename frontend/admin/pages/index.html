@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGCGS - Admin</title>
+    <link href="/admin/assets/css/variables.css" rel="stylesheet">
+    <link href="/admin/assets/css/all-pages.css" rel="stylesheet">
+    <script src="https://unpkg.com/phosphor-icons"></script>
+    <!--Colored selector component-->
+    <link href="/admin/components/colored-selector/style.css" rel="stylesheet">
+    <script src="/admin/components/colored-selector/script.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="navbar-logo">
+            <img src="/admin/assets/img/logo.png" alt="Logomarca da SGCGS">
+            <h2>SGCGS</h2>            
+        </div>
+        <div class="navbar-menu-options">
+            <ul>
+                <li><i class="ph-cube-thin"></i>Dashboard</li>
+                <li><i class="ph-cube-thin"></i>Notícias</li>
+                <li><i class="ph-cube-thin"></i>Anúncios</li>
+                <li><i class="ph-cube-thin"></i>Formulários</li>
+                <li><i class="ph-cube-thin"></i>Enquete</li>
+                <li><i class="ph-cube-thin"></i>Temas</li>
+                <li><i class="ph-cube-thin"></i>Usuários</li>
+            </ul>
+        </div>
+        <div class="navbar-user-options">
+            <img src="/admin/assets/img/user_example.jpg" alt="Imagem do usuário logado">
+            <span>Gaspar</span>
+            <i class="ph-caret-down"></i>
+        </div>
+    </nav>
+    <main>
+        <section class="module-options">
+            <h1> Usuários </h1>
+            <div class="module-data-options">
+                <span>Resultados: 03</span>
+                <div id="cs-container" class="order-selector">
+                    <span>Ordenar por:</span>                    
+                </div>
+            </div>
+        </section>
+        <section class="module-data">
+        </section>
+        <section class="module-pagination">
+
+        </section>
+    </main>
+    <script>
+        renderColoredSelect([{id:1,name:"A à Z"},{id:2,name:"Z à A"},{id:3,name:"Tipo de Usuário"}], false);
+    </script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: edu.ifes.ci.si.les.sgcgs.SgcgsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.862 s - in edu.ifes.ci.si.les.sgcgs.SgcgsApplicationTests

@@ -1,0 +1,41 @@
+/* Variables */
+:root {
+    /* Colors */
+    --color-primary-light: #5678df;
+    --color-primary: #141d37;
+    --color-primary-dark: #0a0e1b;
+    --color-secondary-light: #09f06d;
+    --color-secondary: #44865f;
+    --color-secondary-dark: #002c13;
+    --color-terciary-light: #026efa;
+    --color-terciary: #113351;
+    --color-terciary-dark: #011229;
+    --color-light: #fff;
+    --color-light-gray : #e1e1e1;
+    --color-medium-gray : #717171;
+    --color-dark-gray : #313131;
+    --color-dark : #111;
+    /* Fonts Style */
+    /* lexend bold|regular e inter regular|bold */
+    --font-style-basic: 'Roboto', sans-serif;
+    --font-size-basic: 18px;
+    --line-height-basic: 18px;
+    /* z-index patterns */
+    --z-base-index: 1;
+    --z-medium-index: 10;
+    --z-top-index: 20;
+    /* Space Unity*/
+    --space-unity: 10px;
+    /* Font-Weight */
+    --font-thin: 100;
+    --font-regular: 400;
+    --font-bold: 600;
+    --font-extra-bold: 900;
+    /* Components */
+    /* Navbar */
+    --navbar-width: 200px;
+    --navbar-logo-height: 100px;
+    --navbar-user-options-height: 70px;
+    --navbar-logo-dimensions: 40px;
+    --navbar-user-profile-dimensions: 40px;
+}

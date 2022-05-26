@@ -1,0 +1,422 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow-x: hidden; */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.logo,
+.logo-footer,
+.logo-institucional {
+    width: 100px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/*INÍCIO MENU*/
+.navbar-menu-options {
+    border-radius: 15px;
+    color: #5B0679;
+    text-align: center;
+    padding: 20px;
+    align-content: center;
+    display: inline;
+}
+
+.navbar-menu-options li,
+.footer-options li {
+    display: inline;
+    position: relative;
+}
+
+.navbar-menu-options li a {
+    text-decoration: none;
+    color: #5B0679;
+    display: inline;
+    padding: 15px;
+}
+
+.navbar-menu-options li a:hover {
+    border-radius: 15px;
+    transition: 20ms;
+    background-color: #F67804;
+    color: #FFFBFB;
+}
+
+/*FIM MENU*/
+
+/*INÍCIO NOTÍCIA DESTAQUE 1*/
+.principal-news {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    background-color: #5B0679;
+    margin-top: 5px;
+    width: 98.7vw;
+    height: 450px;
+    /* border-radius: 33px; */
+    /* tornar dinâmico */
+    background-image: url(/client/assets/img/news/67261-Wall-Street-Financial-District.jpg);
+    background-size: cover;
+}
+
+.principal-news-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100vw - 150px);
+    /* height: 100px; */
+    height: auto;
+    background-color: white;
+    border-radius: 33px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.363);
+    color: #5B0679;
+    position: relative;
+    z-index: 10;
+    margin-top: -50px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.principal-news-title>h1 {
+    display: flex;
+    padding: 30px;
+    line-height: 35px;
+    border-radius: 33px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*FIM NOTÍCIA DESTQUE 1*/
+
+/*INÍCIO CONTAINER COM ANÚNCIO E ENQUETE*/
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.anuncio-quadrado,
+.ultimas-enquetes {
+    display: inline-block;
+    margin-top: 10px;
+    height: 250px;
+    /* border-radius: 33px; */
+}
+
+.anuncio-quadrado {
+    /* border: solid 1px #5B0679; */
+    width: 250px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.363);
+    background-color: #F67804;
+    background-image: url(/client/assets/img/ads/ads-400.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 20px;
+}
+
+.ultimas-enquetes {
+    /* border: solid 3px #5B0679; */
+    background-color: #FFFBFB;
+    margin-left: 10px;
+    margin-right: 20px;
+    width: calc(100vw - 280px);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.363);
+}
+
+.ultimas-enquetes>h2,
+.ultimos-formularios>h2 {
+    color: #5B0679;
+    text-align: center;
+    padding: 15px;
+    margin: auto auto auto 20px;
+}
+
+.ultimas-enquetes>ul,
+.ultimos-formularios>ul {
+    list-style-image: url(/client/assets/img/icon/vote32.png);
+    list-style-position: inside;
+    line-height: 50px;
+    margin-left: 30px;
+}
+
+.ultimas-enquetes>li,
+.ultimos-formularios>li {
+    margin: auto;
+    height: auto;
+}
+
+.ultimas-enquetes>a {
+    color: #5B0679;
+}
+
+.ultimas-enquetes>a:hover {
+    color: #F67804;
+    transition: 10ms;
+}
+
+.button {
+    background-color: #5B0679;
+    border-radius: 40px;
+    text-align: center;
+    color: #FFFBFB;
+    padding: 20px;
+    width: 50%;
+    margin: auto;
+    height: auto;
+}
+
+.button:hover {
+    background-color: #F67804;
+    color: #FFFBFB;
+    transition: 10ms;
+}
+
+/*FIM CONTAINER COM ANÚNCIO E ENQUETE*/
+
+/*BLOCO DE NOTÍCIAS DESTAQUE*/
+.secondary-news {
+    margin: 10px 20px 10px 20px;
+}
+
+.secondary-news-news {
+    background-color: #FCF1E7;
+    width: 325px;
+    height: 390px;
+    display: inline-block;
+    /* display: flex; */
+    margin: 0 38px 0 0;
+    border-radius: 5px;
+
+    background-image: url(/client/assets/img/news/news2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: relative;
+    float: left;
+}
+
+.secondary-news-title {
+    margin: 10px 10px 0 10px;
+    /* height: auto; */
+    background-color: #5B0679;
+    padding: 15px;
+    border-radius: 15px;
+    opacity: 0.6;
+}
+
+.secondary-news-title>h2 {
+    z-index: 2;
+    /* left: 0; */
+    text-align: center;
+    line-height: 25px;
+    color: #FFFBFB;
+    height: auto;
+}
+
+.secondary-news-title:hover {
+    opacity: 1;
+    transition: 10ms;
+}
+
+
+/* .secondary-news-news-image{
+    width: 320px;
+    background-image: url(/client/assets/img/news/news2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+/*BLOCO DE NOTÍCIAS DESTAQUE*/
+
+/*ANÚNCIO RETANGULAR LATERAL*/
+.anuncio-retangular {
+    /* background-color: brown; */
+    margin: 10px 15px 20px 0;
+    content: url(/client/assets/img/ads/ads-400.jpg);
+    width: 190px;
+    height: 390px;
+}
+
+/* */
+
+/*ÚLTIMOS FORMULÁRIOS*/
+.formularios-container {
+    margin: 0 20px 10px 20px;
+    align-content: center;
+    height: auto;
+    width: calc(100vw - 60px);
+
+    background-color: #FFFBFB;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.363);
+}
+
+/**/
+
+/*ANÚNCIO HORIZONTAL*/
+.anuncio-horizontal {
+    margin-top: 0;
+    width: 98.7vw;
+    height: 200px;
+    background-color: #F67804;
+    background-image: url(/client/assets/img/ads/ads-400.jpg);
+    background-repeat: repeat;
+    background-size: contain;
+    /*DEPOIS TROCAR PARA ESSAS CARACTERÍSTICAS*/
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+
+/**/
+
+/*FOOTER*/
+.logo-footer {
+    margin: 10px 0 0 20px;
+}
+
+.logo-institucional {
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+    margin-bottom: 20px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+.footer-options{
+    flex: 1;
+    margin: auto;
+}
+.footer-options ul{
+    display: flex;
+}
+.footer-options ul li{
+    flex: 1;
+}
+.footer-options ul li:hover{
+    filter: brightness(0.6);
+}
+/*Barros*/
+    /*Formulario*/
+    @media (max-width: 1280px) {
+        body form{
+            width: 80vw;
+            padding: 0.5em;
+        }
+    }
+
+    .title-formulario{
+        margin-top: 1.5em;
+    }
+    .title-formulario h1{
+        text-align: center;
+        text-transform: uppercase;
+    }
+    form {
+        margin: 0 auto;
+        width: 50vw;
+        padding: 5em;
+        border: 1px solid #CCC;
+        background-color: #FFFBFB;
+        border-radius: 1em;
+        margin-bottom: 4em;
+    }
+    form div + div {
+        margin-top: 1em;
+    }
+    form div input{
+        width: 95%;
+        margin-left: 2.5%;
+        border: 1px solid #5B0679;
+        font-size: 1.2em;
+    }
+    form div input[id=msg]{
+        height: 250px;
+    }
+    label {
+        display: inline-block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 0.2em;
+    }
+    form button{
+        float: right;
+        margin-top: 1.5em;
+        background-color: #F67804; /* Green */
+        border: none;
+        border-radius: 10% 20%;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+    }
+    form button:hover{
+        filter:brightness(85%);
+        cursor: pointer;
+    }
+/**/
+
+/*RESPONSIVIDADE COM CELULAR - TAMANHO MAX = iPHONE XR*/
+
+@media screen and (max-width: 414px) {
+    * {
+        width: auto;
+    }
+
+    .navbar-menu-options {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        line-height: 40px;
+        background-color: transparent;
+    }
+
+    .principal-news-title {
+        width: 80vw;
+        height: auto;
+        padding: 20px;
+    }
+
+    .principal-news-title>h1 {
+        padding: 0;
+        text-align: center;
+    }
+
+    .container,
+    .anuncio-quadrado,
+    .ultimas-enquetes,
+    .anuncio-retangular,
+    .secondary-news-news {
+        display: block;
+        margin: auto;
+        margin-top: 10px;
+    }
+
+    .ultimas-enquetes,
+    .ultimos-formularios {
+        width: auto;
+        height: auto;
+    }
+
+    .secondary-news-news {
+        height: 390px;
+    }
+}
