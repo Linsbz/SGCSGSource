@@ -3,6 +3,7 @@
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -javaagent:\"/home/vscode/.vscode-server/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
     "material-icon-theme.folders.associations": {
         "requests": "routes",
-        "uml": "class"
+        "uml": "class",
+        "mockups": "mock",
     },
 }
