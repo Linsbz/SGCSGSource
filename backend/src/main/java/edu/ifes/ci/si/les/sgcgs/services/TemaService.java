@@ -12,7 +12,12 @@ public class TemaService {
     private TemaRepository repository;
 
     public Tema findById(Integer id) {
-        return repository.findById(id).get();
+        try{
+            Tema obj  repository.findById(id).get();
+            return obj;
+        }catch{
+            throw new ObjectNotFoundException("Tema não encontrado! ID: " + id + ", Tipo: " + Tema.class.getName());
+        }    
     }
 
     public List<Tema> findAll() {
@@ -20,16 +25,28 @@ public class TemaService {
     }
 
     public Tema insert(Tema obj) {
-        return repository.save(obj);
+        obj.setId(null);
+        try{
+            return repository.save(obj);
+        }catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }    
     }
 
     public Tema update(Tema obj) {
         findById(obj.getId());
-        return repository.save(obj);
+        try{
+            return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public void delete(Integer id) {
-        findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir um tema ativo!");
+        }
     }
 }
