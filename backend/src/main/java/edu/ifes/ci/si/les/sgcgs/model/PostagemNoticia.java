@@ -19,8 +19,14 @@ public class PostagemNoticia implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(length = 8)
+	@NotBlank(message = "Data de início deve ser preenchida!")
+	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
 	private Date dataInicio;
 
+	@Column(length = 8)
+	@NotBlank(message = "Data de fim deve ser preenchida!")
+	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
 	private Date dataFim;
 
 	private Boolean destaque;
