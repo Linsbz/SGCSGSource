@@ -12,7 +12,12 @@ public class PostagemAnuncioService {
     private PostagemAnuncioRepository repository;
 
     public PostagemAnuncio findById(Integer id) {
-        return repository.findById(id).get();
+        try{
+            PostagemAnuncio obj  repository.findById(id).get();
+            return obj;
+        }catch{
+            throw new ObjectNotFoundException("Postagem de Anuncio não encontrada! ID: " + id + ", Tipo: " + CompraTema.class.getName());
+        }
     }
 
     public List<PostagemAnuncio> findAll() {
@@ -20,16 +25,28 @@ public class PostagemAnuncioService {
     }
 
     public PostagemAnuncio insert(PostagemAnuncio obj) {
-        return repository.save(obj);
+        obj.setId(null);
+        try{
+            return repository.save(obj);
+        }catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public PostagemAnuncio update(PostagemAnuncio obj) {
         findById(obj.getId());
-        return repository.save(obj);
+        try{
+            return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public void delete(Integer id) {
-        findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir uma postagem ativo!");
+        }
     }
 }

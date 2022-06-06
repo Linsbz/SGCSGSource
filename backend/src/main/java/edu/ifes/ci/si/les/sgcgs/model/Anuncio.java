@@ -24,6 +24,9 @@ public class Anuncio {
 	@Size(min = 3, max = 50, message = "Nome do anúncio deve ter entre 3 e 50 letras")
 	private String titulo;
 	
+	@NotNull(message = "O URL deve ser preenchido")
+    @ManyToOne
+	@JoinColumn(name = "url_id")
 	private String link;
 
 	private String imagemQuadrada;

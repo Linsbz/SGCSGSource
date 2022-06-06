@@ -12,7 +12,12 @@ public class AnuncioService {
     private AnuncioRepository repository;
 
     public Anuncio findById(Integer id) {
-        return repository.findById(id).get();
+        try{
+            Anuncio obj  repository.findById(id).get();
+            return obj;
+        }catch{
+            throw new ObjectNotFoundException("Anuncio não encontrado! ID: " + id + ", Tipo: " + CompraTema.class.getName());
+        }
     }
 
     public List<Anuncio> findAll() {
@@ -20,16 +25,29 @@ public class AnuncioService {
     }
 
     public Anuncio insert(Anuncio obj) {
-        return repository.save(obj);
+        obj.setId(null);
+        try{
+            return repository.save(obj);
+        }catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public Anuncio update(Anuncio obj) {
         findById(obj.getId());
-        return repository.save(obj);
+        try{
+            return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public void delete(Integer id) {
         findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir um Anuncio ativo!");
+        }
     }
 }
