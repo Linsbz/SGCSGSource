@@ -30,7 +30,9 @@ public class TemaController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Tema> insert(@RequestBody Tema obj) {
+    public ResponseEntity<Tema> insert(@Valid @RequestBody Tema obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
         obj = service.insert(obj);
         return ResponseEntity.ok().body(obj);
     }

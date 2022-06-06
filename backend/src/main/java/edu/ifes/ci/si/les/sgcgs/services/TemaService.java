@@ -43,6 +43,7 @@ public class TemaService {
     }
 
     public void delete(Integer id) {
+        findById(id);
         try {
             repository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
