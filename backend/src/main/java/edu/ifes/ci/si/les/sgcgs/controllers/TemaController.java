@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import edu.ifes.ci.si.les.sgcgs.model.Tema;
 import edu.ifes.ci.si.les.sgcgs.services.TemaService;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 @RestController
 @RequestMapping(value = "/temas")
@@ -30,7 +33,9 @@ public class TemaController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Tema> insert(@RequestBody Tema obj) {
+    public ResponseEntity<Tema> insert(@Valid @RequestBody Tema obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
         obj = service.insert(obj);
         return ResponseEntity.ok().body(obj);
     }

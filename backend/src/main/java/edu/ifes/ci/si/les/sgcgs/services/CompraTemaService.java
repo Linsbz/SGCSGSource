@@ -1,10 +1,15 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ifes.ci.si.les.sgcgs.model.CompraTema;
 import edu.ifes.ci.si.les.sgcgs.repositories.CompraTemaRepository;
+
+import org.springframework.dao.DataIntegrityViolationException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CompraTemaService {
@@ -12,7 +17,12 @@ public class CompraTemaService {
     private CompraTemaRepository repository;
 
     public CompraTema findById(Integer id) {
-        return repository.findById(id).get();
+        try{
+            CompraTema obj = repository.findById(id).get();
+            return obj;
+        }catch (NoSuchElementException e){
+            throw new ObjectNotFoundException("Compra do tema não encontrada! ID: " + id + ", Tipo: " + CompraTema.class.getName());
+        }
     }
 
     public List<CompraTema> findAll() {
@@ -20,16 +30,28 @@ public class CompraTemaService {
     }
 
     public CompraTema insert(CompraTema obj) {
-        return repository.save(obj);
+        obj.setId(null);
+        try{
+            return repository.save(obj);
+        }catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public CompraTema update(CompraTema obj) {
         findById(obj.getId());
-        return repository.save(obj);
+        try{
+            return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public void delete(Integer id) {
-        findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir uma Compra de tema já faturada!");
+        }
     }
 }

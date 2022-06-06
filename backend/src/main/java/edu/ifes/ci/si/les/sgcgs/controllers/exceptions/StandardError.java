@@ -8,7 +8,7 @@ public class StandardError {
     private String error;
     private String message;
     private String path;
-    
+
     public StandardError() {
     }
 

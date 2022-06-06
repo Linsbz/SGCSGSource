@@ -21,7 +21,8 @@ public class CompraTema implements Serializable{
 
 
 	@NotNull(message = "Data da compra do tema deve ser preenchida")
-    //@JsonFormat(pattern = "yyyy-MM-dd")
+	@Column(length = 8)
+	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
 	private Date data;
 
 	private Integer valor;
