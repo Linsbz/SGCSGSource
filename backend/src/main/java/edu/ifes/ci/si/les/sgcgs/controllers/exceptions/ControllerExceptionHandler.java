@@ -1,7 +1,5 @@
 package edu.ifes.ci.si.les.sgcgs.controllers.exceptions;
 
-/** @author Júlia de Souza Borges */
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;

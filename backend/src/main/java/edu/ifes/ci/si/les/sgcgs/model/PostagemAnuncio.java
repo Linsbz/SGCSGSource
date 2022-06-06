@@ -21,9 +21,13 @@ public class PostagemAnuncio {
 	private Integer id;
 
 	@NotNull(message = "Data do início do anúncio deve ser preenchida")
+	@Column(length = 8)
+    @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
 	private Date dataInicio;
 
 	@NotNull(message = "Data do fim do anúncio deve ser preenchida")
+	@Column(length = 8)
+    @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
 	private Date dataFim;
 
 	@NotNull(message = "O Anúncio deve ser preenchido")

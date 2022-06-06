@@ -1,7 +1,5 @@
 package edu.ifes.ci.si.les.sgcgs.controllers.exceptions;
 
-/** @author Júlia de Souza Borges */
-
 public class StandardError {
     private static final long serialVersionUID = 1L;
 
