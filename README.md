@@ -1,4 +1,7 @@
 # Sistema de Gerenciamento de Conteúdo para Sites Genéricos - SGCSG
+
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
 ## Cadastros:
 ```
 - usuário (tipos: comum, redator, administrador)
@@ -17,6 +20,29 @@
 - resposta de formulário
 - compra de tema
 ```
+
+# Executando o projeto no VS Code
+
+## Pré-requisitos
+- Docker 
+- Extensão do VS Code Remote Container
+
+## Abrindo o projeto no container
+- Ao abrir o projeto no seu VS Code, clique no botão Reopen in Container no alert que aparecerá na parte inferior direita da sua tela
+
+ou
+
+- Clique no icone do Explorador Remoto no menu lateral esquerdo, selecione o container SGCGSSource e clique em Open Folder In Container
+
+## Executando o projeto
+
+Utilizando a Extensão Spring Boot Dashboard, aguarde a construção do projeto e clique em Run no projeto sgcgs
+
+# Requisições HTTP
+
+[Postman](/requests/postman.json)
+
+[Thunder Client](/requests/thunder-collection.json)
 
 # Application
 
