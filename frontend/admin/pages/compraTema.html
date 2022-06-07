@@ -7,6 +7,7 @@
     <title>SGCGS - Admin</title>
     <link href="/frontend/admin/assets/css/variables.css" rel="stylesheet">
     <link href="/frontend/admin/assets/css/all-pages.css" rel="stylesheet">
+    <link href="/frontend/admin/assets/css/tema.css" rel="stylesheet">
     <script src="https://unpkg.com/phosphor-icons"></script>
     <!--Colored selector component-->
     <link href="/frontend/admin/components/colored-selector/style.css" rel="stylesheet">
@@ -25,7 +26,7 @@
                 <li><i class="ph-cube-thin"></i>Anúncios</li>
                 <li><i class="ph-cube-thin"></i>Formulários</li>
                 <li><i class="ph-cube-thin"></i>Enquete</li>
-                <li><i class="ph-cube-thin"><a href="/cadastrarEnquete.html"></a></i>Temas</li>
+                <li><i class="ph-cube-thin"></i>Temas</li>
                 <li><i class="ph-cube-thin"></i>Usuários</li>
             </ul>
         </div>
@@ -37,12 +38,37 @@
     </nav>
     <main>
         <section class="module-options">
-            <h1> Usuários </h1>
+            <h1> Escolha do tema </h1>
             <div class="module-data-options">
-                <span>Resultados: 03</span>
-                <div id="cs-container" class="order-selector">
-                    <span>Ordenar por:</span>                    
-                </div>
+                <form class="form-tema">
+                    <div class="input-options">
+                        <select id="temas-bought-options">
+                            <option value="0" disabled selected>Temas esperando autenticação da compra</option>
+                            <option value="1">Classic</option>
+                            <option value="2">NEO</option>
+                            <option value="3">Modern</option>
+                        </select>
+                    </div>
+                    <div class="input-options">
+                        <label>Valor do tema:</label>
+                        <p class="inputs-options">R$ 20.00</p>
+                    </div>
+                    <div class="input-options">
+                        <label>Número do cartão:</label>
+                        <input type="number" class="inputs-options">
+                    </div>
+                    <div class="input-options">
+                        <label>Número de segurança:</label>
+                        <input type="number" class="inputs-options">
+                    </div>
+                    <div class="input-options">
+                        <label>Parcelas</label>
+                        <input class="inputs-options">
+                    </div>
+                    <div id="finish-buttons">
+                        <button id="return-button">Comprar</button>
+                    </div>
+                </form>
             </div>
         </section>
         <section class="module-data">

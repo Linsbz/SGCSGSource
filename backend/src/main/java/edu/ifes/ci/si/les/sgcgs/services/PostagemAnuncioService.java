@@ -1,10 +1,16 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ifes.ci.si.les.sgcgs.model.PostagemAnuncio;
 import edu.ifes.ci.si.les.sgcgs.repositories.PostagemAnuncioRepository;
+
+import org.springframework.dao.DataIntegrityViolationException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class PostagemAnuncioService {
@@ -12,7 +18,12 @@ public class PostagemAnuncioService {
     private PostagemAnuncioRepository repository;
 
     public PostagemAnuncio findById(Integer id) {
-        return repository.findById(id).get();
+        try{
+            PostagemAnuncio obj = repository.findById(id).get();
+            return obj;
+        }catch (NoSuchElementException e){
+            throw new ObjectNotFoundException("Postagem de Anuncio não encontrada! ID: " + id + ", Tipo: " + PostagemAnuncio.class.getName());
+        }
     }
 
     public List<PostagemAnuncio> findAll() {
@@ -20,16 +31,28 @@ public class PostagemAnuncioService {
     }
 
     public PostagemAnuncio insert(PostagemAnuncio obj) {
-        return repository.save(obj);
+        obj.setId(null);
+        try{
+            return repository.save(obj);
+        }catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public PostagemAnuncio update(PostagemAnuncio obj) {
         findById(obj.getId());
-        return repository.save(obj);
+        try{
+            return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public void delete(Integer id) {
-        findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir uma postagem ativo!");
+        }
     }
 }

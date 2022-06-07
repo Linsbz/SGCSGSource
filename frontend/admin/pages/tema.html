@@ -11,6 +11,7 @@
     <!--Colored selector component-->
     <link href="/frontend/admin/components/colored-selector/style.css" rel="stylesheet">
     <script src="/frontend/admin/components/colored-selector/script.js"></script>
+    <link href="/frontend/admin/assets/css/tema.css" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -25,7 +26,7 @@
                 <li><i class="ph-cube-thin"></i>Anúncios</li>
                 <li><i class="ph-cube-thin"></i>Formulários</li>
                 <li><i class="ph-cube-thin"></i>Enquete</li>
-                <li><i class="ph-cube-thin"><a href="/cadastrarEnquete.html"></a></i>Temas</li>
+                <li><i class="ph-cube-thin"></i>Temas</li>
                 <li><i class="ph-cube-thin"></i>Usuários</li>
             </ul>
         </div>
@@ -37,12 +38,23 @@
     </nav>
     <main>
         <section class="module-options">
-            <h1> Usuários </h1>
+            <h1> Escolha do tema </h1>
             <div class="module-data-options">
-                <span>Resultados: 03</span>
-                <div id="cs-container" class="order-selector">
-                    <span>Ordenar por:</span>                    
-                </div>
+                <form class="form-tema">
+                    <div id="select-tema">
+                        <select id="temas-options">
+                            <option value="0" disabled selected>Temas esperando autenticação da compra</option>
+                            <option value="1">Classic</option>
+                            <option value="2">NEO</option>
+                            <option value="3">Modern</option>
+                        </select>
+                        <button>Alterar dados da compra</button>
+                    </div>
+                    <div id="finish-buttons">
+                        <button>Cancelar Compra</button>
+                        <button id="return-button">Voltar ao menu</button>
+                    </div>
+                </form>
             </div>
         </section>
         <section class="module-data">

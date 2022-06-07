@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import edu.ifes.ci.si.les.sgcgs.model.AreaAnuncio;
 import edu.ifes.ci.si.les.sgcgs.services.AreaAnuncioService;
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/AreaAnuncios")
+@RequestMapping(value = "/area-anuncios")
 public class AreaAnuncioController {
     @Autowired
     private AreaAnuncioService service;

@@ -10,9 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import edu.ifes.ci.si.les.sgcgs.model.Anuncio;
 import edu.ifes.ci.si.les.sgcgs.services.AnuncioService;
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping(value = "/Anuncios")
+@RequestMapping(value = "/anuncios")
 public class AnuncioController {
     @Autowired
     private AnuncioService service;

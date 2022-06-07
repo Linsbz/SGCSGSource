@@ -12,7 +12,7 @@ import edu.ifes.ci.si.les.sgcgs.model.PostagemAnuncio;
 import edu.ifes.ci.si.les.sgcgs.services.PostagemAnuncioService;
 
 @RestController
-@RequestMapping(value = "/PostagemAnuncios")
+@RequestMapping(value = "/postagem-anuncios")
 public class PostagemAnuncioController {
     @Autowired
     private PostagemAnuncioService service;

@@ -12,7 +12,7 @@ import edu.ifes.ci.si.les.sgcgs.model.CompraTema;
 import edu.ifes.ci.si.les.sgcgs.services.CompraTemaService;
 
 @RestController
-@RequestMapping(value = "/CompraTemas")
+@RequestMapping(value = "/compra-temas")
 public class CompraTemaController {
     @Autowired
     private CompraTemaService service;

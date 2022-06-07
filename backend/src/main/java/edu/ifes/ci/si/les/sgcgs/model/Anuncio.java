@@ -24,6 +24,7 @@ public class Anuncio {
 	@Size(min = 3, max = 50, message = "Nome do anúncio deve ter entre 3 e 50 letras")
 	private String titulo;
 	
+	@NotBlank(message = "URL deve ser preenchida")
 	private String link;
 
 	private String imagemQuadrada;

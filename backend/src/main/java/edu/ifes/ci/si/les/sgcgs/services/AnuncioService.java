@@ -1,10 +1,17 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ifes.ci.si.les.sgcgs.model.Anuncio;
 import edu.ifes.ci.si.les.sgcgs.repositories.AnuncioRepository;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
+
+import org.springframework.dao.DataIntegrityViolationException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class AnuncioService {
@@ -12,7 +19,12 @@ public class AnuncioService {
     private AnuncioRepository repository;
 
     public Anuncio findById(Integer id) {
-        return repository.findById(id).get();
+        try{
+            Anuncio obj = repository.findById(id).get();
+            return obj;
+        }catch (NoSuchElementException e){
+            throw new ObjectNotFoundException("Anuncio não encontrado! ID: " + id + ", Tipo: " + Anuncio.class.getName());
+        }
     }
 
     public List<Anuncio> findAll() {
@@ -20,16 +32,29 @@ public class AnuncioService {
     }
 
     public Anuncio insert(Anuncio obj) {
-        return repository.save(obj);
+        obj.setId(null);
+        try{
+            return repository.save(obj);
+        }catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public Anuncio update(Anuncio obj) {
         findById(obj.getId());
-        return repository.save(obj);
+        try{
+            return repository.save(obj);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Campo obrigatorio não foi preenchido!");
+        }
     }
 
     public void delete(Integer id) {
         findById(id);
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        } catch (DataIntegrityViolationException e) {
+            throw new DataIntegrityException("Não é possível excluir um Anuncio ativo!");
+        }
     }
 }
