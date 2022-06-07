@@ -4,7 +4,11 @@ import java.io.Serializable;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
+// Hilda
 @Entity
 @Data
 @AllArgsConstructor
@@ -18,10 +22,14 @@ public class Enquete implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(length = 30)
+	@NotBlank(message = "Nome da enquete deve ser preenchido")
 	private String nome;
 
+	@NotBlank(message = "Estado da enquete deve ser preenchido")
 	private Boolean estado;
 
+	@NotBlank(message = "Resposta única deve ser preenchido")
 	private Boolean respostaUnica;
 
 	@ManyToOne
