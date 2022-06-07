@@ -19,7 +19,11 @@ public class OpcaoVoto implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@Column(length = 30)
+	@NotBlank(message = "Valor do campo (OpcaoVoto) deve ser preenchido")
 	private String valor;
+
+	// implementar fks
 
 	@ManyToOne
 	@JoinColumn(name = "enquete_id")

@@ -1,0 +1,5 @@
+GET http://localhost:8080/usuarios
+protocol: http
+host: localhost
+path: usuarios
+port: 8080
