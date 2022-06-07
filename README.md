@@ -1,4 +1,7 @@
 # Sistema de Gerenciamento de Conteúdo para Sites Genéricos - SGCSG
+
+![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge)
+
 ## Cadastros:
 ```
 - usuário (tipos: comum, redator, administrador)
@@ -34,6 +37,12 @@ ou
 ## Executando o projeto
 
 Utilizando a Extensão Spring Boot Dashboard, aguarde a construção do projeto e clique em Run no projeto sgcgs
+
+# Requisições HTTP
+
+[Postman](/requests/postman.json)
+
+[Thunder Client](/requests/thunder-collection.json)
 
 # Application
 
