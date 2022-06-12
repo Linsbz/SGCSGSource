@@ -25,18 +25,20 @@ public class CompraTemaController {
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<CompraTema> find(@PathVariable Integer id) {
-        CompraTema obj = service.findById(id);
+        Tema obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<CompraTema> insert(@RequestBody CompraTema obj) {
+    public ResponseEntity<CompraTema> insert(@Valid @RequestBody CompraTema obj, BindingResult br) {
+        if (br.hasErrors())
+        	throw new ConstraintException(br.getAllErrors().get(0).getDefaultMessage());
         obj = service.insert(obj);
         return ResponseEntity.ok().body(obj);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<CompraTema> update(@RequestBody CompraTema obj) {
+    public ResponseEntity<CompraTema> update(@RequestBody Tema obj) {
         obj = service.update(obj);
         return ResponseEntity.ok().body(obj);
     }
