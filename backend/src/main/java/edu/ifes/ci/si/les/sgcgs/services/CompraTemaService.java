@@ -49,4 +49,8 @@ public class CompraTemaService {
             throw new DataIntegrityException("Não é possível excluir uma Compra de tema já faturada!");
         }
     }
+
+    //CREATE UNIQUE INDEX index_name ON table (field);
+
+    //Dois por mes
 }

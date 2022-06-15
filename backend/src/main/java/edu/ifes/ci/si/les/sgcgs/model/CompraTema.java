@@ -15,24 +15,44 @@ public class CompraTema implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    @JsonIgnore
+    @EmbeddedId
+    private CompraTemaPK id = new CompraTemaPK();
 
+    @NotNull(message = "Data da Compra do Tema deve ser preenchida")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date data;
 
-	@NotNull(message = "Data da compra do tema deve ser preenchida")
-	@Column(length = 8)
-	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
-	private Date data;
+    @Builder
+    public CompraTema(Tema tema, Usuario usuario, Date data) {
+        this.id.setCompra(emprestimo);
+        this.id.setTema(tema);
+        this.valor.setTemaV(tema);
+    }
 
-	private Integer valor;
+    @JsonIgnore
+    public Tema getTema() {
+        return id.getTema();
+    }
 
-	@ManyToOne
-	@JoinColumn(name = "usuario_id")
-	private Usuario usuario;
+    public void setTema(Tema tema) {
+        id.setTema(tema);
+    }
 
-	@ManyToOne
-	@JoinColumn(name = "tema_id")
-	private Tema tema;
+    public Tema setTemaV(Tema tema) {
+        valor.setTemaV(tema);
+    }
+
+    public Tema getTemaV() {
+        return id.getTemaV();
+    }
+
+    public Usuario getUsuario() {
+        return id.getUsuario();
+    }
+
+    public void setUsuario(Usuario usuario) {
+        id.setUsuario(usuario);
+    }
 
 }

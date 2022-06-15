@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import edu.ifes.ci.si.les.sgcgs.model.CompraTema;
 
 @Repository
-public interface CompraTemaRepository extends JpaRepository<CompraTema, Integer> {
+public interface CompraTemaRepository extends JpaRepository<CompraTema, CompraTemaPK> {
 }
