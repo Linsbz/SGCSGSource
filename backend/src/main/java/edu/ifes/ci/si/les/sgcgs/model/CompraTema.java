@@ -16,26 +16,36 @@
 // public class CompraTema implements Serializable{
 
 // 	private static final long serialVersionUID = 1L;
+//     GregorianCalendar dataCal = new GregorianCalendar();
 
-    @NotNull(message = "Data da Compra do Tema deve ser preenchida")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date data;
+//     @NotNull(message = "Data da Compra do Tema deve ser preenchida")
+//     @JsonFormat(pattern = "yyyy-MM-dd")
+//     private Date data;
+
+//     @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
+//     @ManyToOne
+//     @JoinColumn(name = "compraTema_id")
+//     private Usuario usuario;
+
+//     @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
+//     @ManyToOne
+//     @JoinColumn(name = "tema_id")
+//     private Tema tema;
 
 //     @Builder
-//     public CompraTema(Tema tema, Usuario usuario, Date data) {
-//         this.id.setCompra(emprestimo);
-//         this.id.setTema(tema);
-//         this.valor.setTemaV(tema);
+//     public CompraTema(Integer id, Date data, Tema tema, Usuario usuario) {
+//         this.id = id;
+//         this.data = data;
+//         this.tema = tema;
+//         this.usuario = usuario;
 //     }
 
-    @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
-    @ManyToOne
-    @JoinColumn(name = "compraTema_id")
-    private Usuario usuario;
+//     public getDataM(){
+//         return dataget(data.MONTH);
+//     }
 
-    @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
-    @ManyToOne
-    @JoinColumn(name = "tema_id")
-    private Tema tema;
+//     public getDataA(){
+//         return dataget(data.YEAR);
+//     }
 
 // }
