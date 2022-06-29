@@ -17,10 +17,6 @@ public class CompraTema implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-    @JsonIgnore
-    @EmbeddedId
-    private CompraTemaPK id = new CompraTemaPK();
-
     @NotNull(message = "Data da Compra do Tema deve ser preenchida")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date data;
@@ -32,32 +28,14 @@ public class CompraTema implements Serializable{
         this.valor.setTemaV(tema);
     }
 
-    @JsonIgnore
-    public Tema getTema() {
-        return id.getTema();
-    }
+    @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
+    @ManyToOne
+    @JoinColumn(name = "compraTema_id")
+    private Usuario usuario;
 
-    public void setTema(Tema tema) {
-        id.setTema(tema);
-    }
-
-    public Tema setTemaV(Tema tema) {
-        valor.setTemaV(tema);
-    }
-
-    public Tema getTemaV() {
-        return id.getTemaV();
-    }
-
-    public Usuario getUsuario() {
-        return id.getUsuario();
-    }
-
-    public void setUsuario(Usuario usuario) {
-        id.setUsuario(usuario);
-    }
-    public void getDataM(){
-        return id.data.get(data.MONTH);
-    }
+    @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
+    @ManyToOne
+    @JoinColumn(name = "tema_id")
+    private Tema tema;
 
 }
