@@ -11,6 +11,8 @@ import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 import java.util.NoSuchElementException;
 
+/** @author Júlia de Souza Borges */
+
 @Service
 public class PostagemNoticiaService {
     @Autowired
