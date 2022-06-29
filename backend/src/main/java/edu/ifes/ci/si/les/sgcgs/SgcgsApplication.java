@@ -35,8 +35,8 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private TemaRepository TemaRepository;
 
-	@Autowired
-	private CompraTemaRepository CompraTemaRepository;
+	// @Autowired
+	// private CompraTemaRepository CompraTemaRepository;
 
 	@Autowired
 	private EnqueteRepository EnqueteRepository;
@@ -47,14 +47,14 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private VotoRepository VotoRepository;
 
-	@Autowired
-	private AnuncioRepository AnuncioRepository;
+	// @Autowired
+	// private AnuncioRepository AnuncioRepository;
 
-	@Autowired
-	private AreaAnuncioRepository AreaAnuncioRepository;
+	// @Autowired
+	// private AreaAnuncioRepository AreaAnuncioRepository;
 
-	@Autowired
-	private PostagemAnuncioRepository PostagemAnuncioRepository;
+	// @Autowired
+	// private PostagemAnuncioRepository PostagemAnuncioRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SgcgsApplication.class, args);
@@ -101,9 +101,9 @@ public class SgcgsApplication implements CommandLineRunner {
 		Tema t2 = new Tema(null, "teste2", 50, false, "/dados/tema/img1");
 		TemaRepository.saveAll(Arrays.asList(t1,t2));
 
-		CompraTema ct1 = new CompraTema(null, new Date(2022, 5, 20, 1, 42), 30, u5, t1);
-		CompraTema ct2 = new CompraTema(null, new Date(2022, 5, 20, 1, 44), 50, u6, t2);
-		CompraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
+		// CompraTema ct1 = new CompraTema(null, new Date(2022, 5, 20, 1, 42), 30, u5, t1);
+		// CompraTema ct2 = new CompraTema(null, new Date(2022, 5, 20, 1, 44), 50, u6, t2);
+		// CompraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
 		
 		Enquete e1 = new Enquete(null, "Melhor time do Rio", true, true, u3);
 		Enquete e2 = new Enquete(null, "Qual a sua área em TI?", true, true, u4);
@@ -119,17 +119,17 @@ public class SgcgsApplication implements CommandLineRunner {
 		Voto v2 = new Voto(null, new Date(2022, 5, 20, 1, 44), ov2, u3);
 		VotoRepository.saveAll(Arrays.asList(v1,v2));
 		
-		Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
-		Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
-		AnuncioRepository.saveAll(Arrays.asList(an1,an2));
+		// Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
+		// Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
+		// AnuncioRepository.saveAll(Arrays.asList(an1,an2));
 
-		AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
-		AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
-		AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
+		// AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
+		// AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
+		// AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
 
-		PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
-		PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
-		PostagemAnuncioRepository.saveAll(Arrays.asList(pt1,pt2));
+		// PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
+		// PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
+		// PostagemAnuncioRepository.saveAll(Arrays.asList(pt1,pt2));
 		
 	}
 
