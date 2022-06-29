@@ -1,46 +1,46 @@
-package edu.ifes.ci.si.les.scv.services;
+// package edu.ifes.ci.si.les.scv.services;
 
-import java.util.Collection;
-import java.util.NoSuchElementException;
+// import java.util.Collection;
+// import java.util.NoSuchElementException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.dao.DataIntegrityViolationException;
+// import org.springframework.stereotype.Service;
+// import org.springframework.transaction.annotation.Propagation;
+// import org.springframework.transaction.annotation.Transactional;
 
-import edu.ifes.ci.si.les.scv.model.Usuario;
-import edu.ifes.ci.si.les.scv.model.CompraTema;
-import edu.ifes.ci.si.les.scv.model.Tema;
-import edu.ifes.ci.si.les.scv.repositories.UsuarioRepository;
-import edu.ifes.ci.si.les.scv.repositories.CompraTemaRepository;
-import edu.ifes.ci.si.les.scv.repositories.TemaRepository;
-import edu.ifes.ci.si.les.scv.services.exceptions.BusinessRuleException;
-import edu.ifes.ci.si.les.scv.services.exceptions.DataIntegrityException;
-import edu.ifes.ci.si.les.scv.services.exceptions.ObjectNotFoundException;
+// import edu.ifes.ci.si.les.scv.model.Usuario;
+// import edu.ifes.ci.si.les.scv.model.CompraTema;
+// import edu.ifes.ci.si.les.scv.model.Tema;
+// import edu.ifes.ci.si.les.scv.repositories.UsuarioRepository;
+// import edu.ifes.ci.si.les.scv.repositories.CompraTemaRepository;
+// import edu.ifes.ci.si.les.scv.repositories.TemaRepository;
+// import edu.ifes.ci.si.les.scv.services.exceptions.BusinessRuleException;
+// import edu.ifes.ci.si.les.scv.services.exceptions.DataIntegrityException;
+// import edu.ifes.ci.si.les.scv.services.exceptions.ObjectNotFoundException;
 
-@Service
-public class CompraTemaService {
+// @Service
+// public class CompraTemaService {
 
-	@Autowired
-	private CompraTemaRepository compraTemaRepository;
-	@Autowired
-	private TemaRepository temaRepository;
-	@Autowired
-	private UsuarioRepository usuarioRepository;
+// 	@Autowired
+// 	private CompraTemaRepository compraTemaRepository;
+// 	@Autowired
+// 	private TemaRepository temaRepository;
+// 	@Autowired
+// 	private UsuarioRepository usuarioRepository;
 
-	public CompraTema findById(Integer id) {
-		try {
-        	CompraTema obj = compraTemaRepository.findById(id).get();
-        	return obj;
-        } catch (NoSuchElementException e) {
-        	throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + CompraTema.class.getName());
-        }
-	}
+// 	public CompraTema findById(Integer id) {
+// 		try {
+//         	CompraTema obj = compraTemaRepository.findById(id).get();
+//         	return obj;
+//         } catch (NoSuchElementException e) {
+//         	throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + CompraTema.class.getName());
+//         }
+// 	}
 
-	public Collection<CompraTema> findAll() {
-		return compraTemaRepository.findAll();
-	}
+// 	public Collection<CompraTema> findAll() {
+// 		return compraTemaRepository.findAll();
+// 	}
 
 	@Transactional(propagation = Propagation.REQUIRES_NEW) // Esta notação tem objetivo de controlar a propagação da transação (garantindo que sejam realizadas todas as modificações no BD, ou nada)
 	public CompraTema insert(CompraTema obj) {
@@ -105,4 +105,4 @@ public class CompraTemaService {
 		return compraTemaRepository.findByUsuario(usuario);
 	}
 
-}
+// }
