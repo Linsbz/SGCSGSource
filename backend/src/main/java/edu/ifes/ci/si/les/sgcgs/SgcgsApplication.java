@@ -35,8 +35,8 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private TemaRepository TemaRepository;
 
-	@Autowired
-	private CompraTemaRepository CompraTemaRepository;
+	// @Autowired
+	// private CompraTemaRepository CompraTemaRepository;
 
 	@Autowired
 	private EnqueteRepository EnqueteRepository;
@@ -101,9 +101,9 @@ public class SgcgsApplication implements CommandLineRunner {
 		Tema t2 = new Tema(null, "teste2", 50, false, "/dados/tema/img1");
 		TemaRepository.saveAll(Arrays.asList(t1,t2));
 
-		CompraTema ct1 = new CompraTema(null, new Date(2022, 5, 20, 1, 42), 30, u5, t1);
-		CompraTema ct2 = new CompraTema(null, new Date(2022, 5, 20, 1, 44), 50, u6, t2);
-		CompraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
+		// CompraTema ct1 = new CompraTema(null, new Date(2022, 5, 20, 1, 42), 30, u5, t1);
+		// CompraTema ct2 = new CompraTema(null, new Date(2022, 5, 20, 1, 44), 50, u6, t2);
+		// CompraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
 		
 		Enquete e1 = new Enquete(null, "Melhor time do Rio", true, true, u3);
 		Enquete e2 = new Enquete(null, "Qual a sua área em TI?", true, true, u4);
