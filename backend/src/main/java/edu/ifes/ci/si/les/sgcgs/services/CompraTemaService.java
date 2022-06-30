@@ -86,7 +86,7 @@
 // 		// Regra de Negócio 1: Uma compr por tema
 // 		boolean R1 = false;
 // 			// Verificando se existem reservas em aberto para a fita
-// 		Collection <CompraTema> Col = compraTemaRepository.findBytemaID(item.getId().getTema().getId());
+// 		Collection <CompraTema> Col = compraTemaRepository.findBytemaID(obj.getId().getTema().getId());
 // 		if (col.size > 0) {
 // 			R1 = true;
 // 		}
@@ -98,7 +98,7 @@
 // 		// Regra de Negócio 2: Duas compra mes
 // 		Integer aux = 0;
 // 		// Verificando se existem reservas em aberto para a fita
-// 		Collection <CompraTema> Col = compraTemaRepository.findByData(item.getDataM(),item.getDataA());
+// 		Collection <CompraTema> Col = compraTemaRepository.findByData(obj.getDataM(),obj.getDataA());
 // 		if (col.size>1) {
 // 			throw new BusinessRuleException("2 compras por mes!");
 // 		}
