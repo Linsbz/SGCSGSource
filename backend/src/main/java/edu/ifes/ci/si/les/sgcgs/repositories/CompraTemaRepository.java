@@ -23,8 +23,8 @@
 //     public Collection<CompraTema> findBytemaID(Integer idTema);
 
 //     @Transactional(readOnly = true)
-//     @Query(value = "select * from COMPRATEMA where DAY(data) = ?1 and MONTH(data) = ?2")
-//     public Collection<CompraTema> findByData(Date dataM);
+//     @Query(value = "select * from COMPRATEMA where MONTH(data) = ?1 and YEAR(data) = ?2")
+//     public Collection<CompraTema> findByData(Date dataM, Date dataY);
 
 
 // }
