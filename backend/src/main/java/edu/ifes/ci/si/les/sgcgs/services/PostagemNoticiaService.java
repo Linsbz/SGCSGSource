@@ -1,15 +1,21 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
+// import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import edu.ifes.ci.si.les.sgcgs.model.PostagemNoticia;
 import edu.ifes.ci.si.les.sgcgs.repositories.PostagemNoticiaRepository;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
+
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.BusinessRuleException;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
-import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
+// import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 import java.util.NoSuchElementException;
+
+/** @author Júlia de Souza Borges */
 
 @Service
 public class PostagemNoticiaService {
@@ -32,12 +38,17 @@ public class PostagemNoticiaService {
 
     public PostagemNoticia insert(PostagemNoticia obj) {
         // return repository.save(obj);
-        obj.setId(null);
+        // obj.setId(null);
         try{
-            return repository.save(obj);
+            // if (verificaQuantidadeDestaque(obj)){
+                return repository.save(obj);
+                // obj.setId(null);
+            // }
         }catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Campo obrigatório de notícia não foi preenchido!");
         }
+        // return null;
+        // return repository.save(obj);
     }
 
     public PostagemNoticia update(PostagemNoticia obj) {
@@ -58,5 +69,26 @@ public class PostagemNoticiaService {
         } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Não é possível excluir uma notícia de um outro autor!");
         }
+    }
+
+    // Regras de Negócio referente ao processo de negócio Postagem de Notícias
+    // Regra 1: só autor que criou a notícia ou administrador  podem postar ou excluir a postagem
+    // Regra 2: validar a quantidade máxima de 3 notícias destaque
+
+    
+    public boolean verificaUsuarioNoticia(PostagemNoticia obj){
+        // Regra 1: só autor que criou a notícia ou administrador  podem postar ou excluir a postagem
+        if (!repository.findUsuario(obj.getUsuario().getId(), obj.getNoticia().getId())){
+            throw new BusinessRuleException("Não é possível excluir uma notícia de um outro autor!");
+        }
+        return true;
+    }
+
+    public boolean verificaQuantidadeDestaque(PostagemNoticia obj){
+        // Regra 2: validar a quantidade máxima de 3 notícias destaque
+        if (!repository.findNoticiaDestaque()){
+            throw new BusinessRuleException("Não é possível adicionar mais notícias em destaque. Limite atingido!");
+        }
+        return true;
     }
 }
