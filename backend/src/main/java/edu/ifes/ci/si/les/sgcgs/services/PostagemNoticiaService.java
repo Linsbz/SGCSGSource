@@ -40,14 +40,14 @@ public class PostagemNoticiaService {
         // return repository.save(obj);
         // obj.setId(null);
         try{
-            // if (verificaQuantidadeDestaque(obj)){
+            if (verificaQuantidadeDestaque(obj)){
                 return repository.save(obj);
                 // obj.setId(null);
-            // }
+            }
         }catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Campo obrigatório de notícia não foi preenchido!");
         }
-        // return null;
+        return null;
         // return repository.save(obj);
     }
 
