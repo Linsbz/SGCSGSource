@@ -62,9 +62,12 @@ public class PostagemNoticiaService {
         findById(obj.getId());
         // return repository.save(obj);
         try{
-            return repository.save(obj);
+            if(NoticiaDestaque(obj) != true){
+                throw new BusinessRuleException("Não é possível atualizar. Limite máximo de notícias em destaque atingido!");
+            }
+                return repository.save(obj);
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityException("2-Campo obrigatório de notícia não foi preenchido!");
+            throw new DataIntegrityException("Campo obrigatório de notícia não foi preenchido!");
         }
     }
 
@@ -78,8 +81,8 @@ public class PostagemNoticiaService {
         }
     }
 
-    // Regra 2: validar a quantidade máxima de 3 notícias destaque
     public boolean NoticiaDestaque(PostagemNoticia obj) {
+        // Regra 2: validar a quantidade máxima de 3 notícias destaque
         if(repository.findNoticiaDestaque() != true){
             //throw new BusinessRuleException("Limite máximo de notícias em destaque atingido!");
             return false;
