@@ -20,8 +20,8 @@ public interface PostagemNoticiaRepository extends JpaRepository<PostagemNoticia
         // SELECT USUARIO_ID = 5 FROM NOTICIA WHERE ID = 2 LIMIT 1
         @Transactional(readOnly = true)
         @Query(value = "SELECT USUARIO_ID = ?1 FROM NOTICIA WHERE ID = ?2", nativeQuery = true)
-        public Collection<?> findUsuario(Integer usuaruiId, Integer noticiaId);
-        // public boolean findUsuario(Integer usuarioTentandoAlterar, Integer noticiaID);
+        // public Collection<?> findUsuario(Integer usuaruiId, Integer noticiaId);
+        public boolean findUsuario(Integer usuarioTentandoAlterar, Integer noticiaID);
 
         // REGRA 2:
         // SELECT COUNT(*) < 3 AS VALIDADESTAQUE FROM POSTAGEM_NOTICIA  WHERE DESTAQUE = TRUE LIMIT 1
@@ -30,7 +30,4 @@ public interface PostagemNoticiaRepository extends JpaRepository<PostagemNoticia
         // public Collection<?> NoticiaDestaque();
         public boolean findNoticiaDestaque();
 
-        // public Collection<?> findNoticiaDestaque();
-
-        // public Collection<?> findNoticiaDestaque(Boolean boolean1);
 }

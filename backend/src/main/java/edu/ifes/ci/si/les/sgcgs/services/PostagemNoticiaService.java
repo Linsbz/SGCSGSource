@@ -1,6 +1,6 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
-import java.util.Collection;
+// import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,14 +71,33 @@ public class PostagemNoticiaService {
         }
     }
 
+
     public void delete(Integer id) {
+        PostagemNoticia obj = repository.findById(id).get();
+        Integer idNoticia = obj.getNoticia().getId();
+        
+        System.out.println(idNoticia);
+        // System.out.println(id);
+        
         // findById(id);
         // repository.deleteById(id);
         try {
-            repository.deleteById(id);
+            if(verificaUsuario(id, idNoticia) == true){
+                repository.deleteById(id);
+            }
+            // repository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Não é possível excluir uma notícia de um outro autor!");
         }
+    }
+    
+    
+    private boolean verificaUsuario(Integer id_usuario, Integer id_noticia) {
+        //Regra 1:  só autor que criou a notícia podem postar ou excluir a postagem
+        if(repository.findUsuario(id_usuario, id_noticia) != true){
+            return false;
+        }
+        return true; 
     }
 
     public boolean NoticiaDestaque(PostagemNoticia obj) {
