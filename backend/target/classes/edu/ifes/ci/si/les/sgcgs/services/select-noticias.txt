@@ -1,0 +1,14 @@
+insert 
+    into
+        noticia
+        (id, conteudo, imagem, sub_titulo, titulo, url, usuario_id) 
+    values
+        (default, ?, ?, ?, ?, ?, ?)
+
+
+insert 
+    into
+        postagem_noticia
+        (id, data_fim, data_inicio, destaque, noticia_id, usuario_id) 
+    values
+        (default, ?, ?, ?, ?, ?)
