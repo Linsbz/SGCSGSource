@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ifes.ci.si.les.sgcgs.model.PostagemNoticia;
+import edu.ifes.ci.si.les.sgcgs.model.Usuario;
 import edu.ifes.ci.si.les.sgcgs.repositories.PostagemNoticiaRepository;
 
 
@@ -50,7 +51,7 @@ public class PostagemNoticiaService {
                 // obj.setNoticia(obj.getNoticia());
                 obj.setDestaque(false);
                 repository.save(obj);
-                throw new BusinessRuleException("Limite máximo de notícias em destaque atingido!");
+                throw new BusinessRuleException("Limite máximo de notícias em destaque atingido! Tente novamente");
             }
             return repository.save(obj);
         }catch (DataIntegrityViolationException e) {
@@ -75,15 +76,19 @@ public class PostagemNoticiaService {
     public void delete(Integer id) {
         PostagemNoticia obj = repository.findById(id).get();
         Integer idNoticia = obj.getNoticia().getId();
+        //Usuario idAutor = obj.getNoticia().getUsuario();
         
-        System.out.println(idNoticia);
-        // System.out.println(id);
+        // System.out.println(idNoticia); //1
+        // System.out.println(idAutor);   //Usuario(id=4, nome=Júlia, email=julia@sgcgs.com.br, senha=1234, tipo=REDATOR)
+        // System.out.println(id);        // 3
         
         // findById(id);
         // repository.deleteById(id);
         try {
             if(verificaUsuario(id, idNoticia) == true){
                 repository.deleteById(id);
+            }else{
+                throw new BusinessRuleException("Não é possível excluir! Usuário não possui permissão!");
             }
             // repository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
