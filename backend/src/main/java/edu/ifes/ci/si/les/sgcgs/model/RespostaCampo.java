@@ -5,6 +5,9 @@ import java.io.Serializable;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/** @author Felipe Gaspar */
 
 @Entity
 @Data
@@ -23,6 +26,11 @@ public class RespostaCampo {
 	@JoinColumn(name = "respostaformulario_id")
 	private RespostaFormulario respostaFormulario;
 	
+	@JsonIgnore
+    public RespostaFormulario getRespostaFormulario() {
+        return this.respostaFormulario;
+    }
+
 	@ManyToOne
 	@JoinColumn(name = "campodeformulario_id")
 	private CampoDeFormulario campoDeFormulario;

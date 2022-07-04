@@ -39,7 +39,7 @@ public class Formulario implements Serializable{
 	
 	@NotNull(message = "O Formulário deve possuir pelo menos dois campos de formulário")
     //orphanRemoval = true: utilizado para remover filhos (itens) sem pai (empréstimo) em caso de atualizaçao do empréstimo (para um número de itens menor que o anterior)
-    @OneToMany(mappedBy = "id.formulario", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "formulario", cascade = CascadeType.ALL, orphanRemoval = true)
     private Collection<CampoDeFormulario> itens = new ArrayList<>();
 
     @Builder
