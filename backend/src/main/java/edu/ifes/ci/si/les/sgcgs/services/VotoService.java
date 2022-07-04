@@ -74,13 +74,12 @@ public class VotoService {
             R1 = true;
         }
         if (R1) {
-            throw new BusinessRuleException("Usuario ja votou nesta enquete!");
+            throw new BusinessRuleException("Usuario já votou nesta enquete!");
         }
 
         //RN 2: Usuário só pode votar em enquetes abertas
-        Integer aux = 0;
-        Collection <CompraTema> Col = compraTemaRepository.findByEnqueteAberta(obj.getEnquete().getId());
-        if (col.size>0) {
+        Enquete e = votoRepository.findByEnqueteAberta(obj.getEnquete().getId());
+        if (e.getEstado() == false) {
             throw new BusinessRuleException("Não é possível votar pois essa enquete está fechada!");
         }
 	}

@@ -28,6 +28,6 @@ public interface VotoRepository extends JpaRepository<Voto, Integer> {
 
     //RN 2: Usuário só pode votar em enquetes abertas
     @Transactional(readOnly = true)
-    @Query(value = "SELECT * FROM voto AS voto INNER JOIN enquete AS enquete WHERE voto.enquete_id = ?1 AND enquete.estado = FALSE", nativeQuery = true)
-    public boolean findByEnqueteAberta(Integer idEnquete);
+    @Query(value = "SELECT * FROM enquete WHERE id = ?1", nativeQuery = true)
+    public Enquete findByEnqueteAberta(Integer idEnquete);
 }
