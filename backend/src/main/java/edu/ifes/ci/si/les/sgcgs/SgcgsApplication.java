@@ -47,14 +47,14 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private VotoRepository VotoRepository;
 
-	@Autowired
-	private AnuncioRepository AnuncioRepository;
+	// @Autowired
+	// private AnuncioRepository AnuncioRepository;
 
-	@Autowired
-	private AreaAnuncioRepository AreaAnuncioRepository;
+	// @Autowired
+	// private AreaAnuncioRepository AreaAnuncioRepository;
 
-	@Autowired
-	private PostagemAnuncioRepository PostagemAnuncioRepository;
+	// @Autowired
+	// private PostagemAnuncioRepository PostagemAnuncioRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SgcgsApplication.class, args);
@@ -119,17 +119,17 @@ public class SgcgsApplication implements CommandLineRunner {
 		Voto v2 = new Voto(null, new Date(2022, 5, 20, 1, 44), ov2, u3);
 		VotoRepository.saveAll(Arrays.asList(v1,v2));
 		
-		Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
-		Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
-		AnuncioRepository.saveAll(Arrays.asList(an1,an2));
+		// Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
+		// Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
+		// AnuncioRepository.saveAll(Arrays.asList(an1,an2));
 
-		AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
-		AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
-		AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
+		// AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
+		// AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
+		// AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
 
-		PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
-		PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
-		PostagemAnuncioRepository.saveAll(Arrays.asList(pt1,pt2));
+		// PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
+		// PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
+		// PostagemAnuncioRepository.saveAll(Arrays.asList(pt1,pt2));
 		
 	}
 

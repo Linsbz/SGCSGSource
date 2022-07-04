@@ -60,6 +60,7 @@
 //         return ResponseEntity.noContent().build();
 //     }
 
+
 //     @RequestMapping(value = "/findByUsuario/{idUsuario}", method = RequestMethod.GET)
 //     public ResponseEntity<Collection<Emprestimo>> findByUsuario(@PathVariable Integer idUsuario) {
 //         Usuario usuario = new Usuario();
@@ -69,3 +70,6 @@
 //     }
 
 // }
+
+//     }
+

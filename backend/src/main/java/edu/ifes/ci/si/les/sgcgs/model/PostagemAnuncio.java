@@ -1,9 +1,9 @@
 package edu.ifes.ci.si.les.sgcgs.model;
 
 import java.util.Date;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
+// import java.io.Serializable;
+// import java.util.ArrayList;
+// import java.util.Collection;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import lombok.*;

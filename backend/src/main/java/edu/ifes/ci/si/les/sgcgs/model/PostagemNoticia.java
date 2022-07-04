@@ -39,6 +39,6 @@ public class PostagemNoticia implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name = "noticia_id")
-	private Noticia noticia;
+    public Noticia noticia;
 
 }
