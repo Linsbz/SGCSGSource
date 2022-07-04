@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.ifes.ci.si.les.sgcgs.model.Voto;
 import edu.ifes.ci.si.les.sgcgs.services.VotoService;
 
+/** @author Hilda Biazatti */
+
 @RestController
 @RequestMapping(value = "/votos")
 public class VotoController {
