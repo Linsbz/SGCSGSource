@@ -8,6 +8,11 @@
 // import org.springframework.validation.BindingResult;
 // import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
+// import java.io.Serializable;
+// import java.util.ArrayList;
+// import java.util.Collection;
+// import java.util.Date;
+
 // @Entity
 // @Data
 // @AllArgsConstructor
@@ -23,12 +28,10 @@
 //     private Date data;
 
 //     @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
-//     @ManyToOne
 //     @JoinColumn(name = "compraTema_id")
 //     private Usuario usuario;
 
 //     @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
-//     @ManyToOne
 //     @JoinColumn(name = "tema_id")
 //     private Tema tema;
 

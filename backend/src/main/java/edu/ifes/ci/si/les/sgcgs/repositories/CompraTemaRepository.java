@@ -19,11 +19,11 @@
 //     public Collection<CompraTema> findByCliente(Usuario usuario);
 
 //     @Transactional(readOnly = true)
-//     @Query(value = "select * from COMPRATEMA where COMPRATEMA.TEMA_ID = ?1")
+//     @Query(value = "select * from COMPRATEMA where COMPRATEMA.TEMA_ID = ?1", nativeQuery = true)
 //     public Collection<CompraTema> findBytemaID(Integer idTema);
 
 //     @Transactional(readOnly = true)
-//     @Query(value = "select * from COMPRATEMA where MONTH(data) = ?1 and YEAR(data) = ?2")
+//     @Query(value = "select * from COMPRATEMA where MONTH(data) = ?1 and YEAR(data) = ?2", nativeQuery = true)
 //     public Collection<CompraTema> findByData(Date dataM, Date dataY);
 
 
