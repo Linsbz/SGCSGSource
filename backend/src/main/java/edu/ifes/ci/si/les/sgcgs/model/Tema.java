@@ -4,9 +4,9 @@ import java.io.Serializable;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import javax.validation.Valid;
-import org.springframework.validation.BindingResult;
-import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
+// import javax.validation.Valid;
+// import org.springframework.validation.BindingResult;
+// import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
 @Entity
 @Data

@@ -1,6 +1,6 @@
 package edu.ifes.ci.si.les.sgcgs.model;
 
-import java.util.Date;
+// import java.util.Date;
 import java.io.Serializable;
 import lombok.*;
 import javax.persistence.*;

@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.ifes.ci.si.les.sgcgs.model.PostagemNoticia;
 import edu.ifes.ci.si.les.sgcgs.services.PostagemNoticiaService;
 
-/** @author Júlia de Souza Borges */
-
 @RestController
 @RequestMapping(value = "/postagem-noticia")
 public class PostagemNoticiaController {

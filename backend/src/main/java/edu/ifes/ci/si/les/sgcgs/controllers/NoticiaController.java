@@ -16,8 +16,6 @@ import edu.ifes.ci.si.les.sgcgs.model.Noticia;
 import edu.ifes.ci.si.les.sgcgs.services.NoticiaService;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
-/** @author Júlia de Souza Borges */
-
 @RestController
 @RequestMapping(value = "/noticias")
 public class NoticiaController {

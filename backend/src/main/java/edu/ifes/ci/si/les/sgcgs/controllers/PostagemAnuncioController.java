@@ -11,10 +11,9 @@
 // import edu.ifes.ci.si.les.sgcgs.model.PostagemAnuncio;
 // import edu.ifes.ci.si.les.sgcgs.services.PostagemAnuncioService;
 
-// /** @author Lincoln Silva Bazoni */
-
 // @RestController
-// @RequestMapping(value = "/postagem-anuncio")
+// @RequestMapping(value = "/postagem-anuncios")
+
 // public class PostagemAnuncioController {
 //     @Autowired
 //     private PostagemAnuncioService service;

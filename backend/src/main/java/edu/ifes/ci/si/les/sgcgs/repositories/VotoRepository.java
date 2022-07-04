@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package edu.ifes.ci.si.les.sgcgs.repositories;
 
 import java.util.Collection;
@@ -30,4 +31,14 @@ public interface VotoRepository extends JpaRepository<Voto, Integer> {
     @Transactional(readOnly = true)
     @Query(value = "SELECT * FROM voto AS voto INNER JOIN enquete AS enquete WHERE voto.enquete_id = ?1 AND enquete.estado = FALSE", nativeQuery = true)
     public boolean findByEnqueteAberta(Integer idEnquete);
+=======
+package edu.ifes.ci.si.les.sgcgs.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import edu.ifes.ci.si.les.sgcgs.model.Voto;
+
+@Repository
+public interface VotoRepository extends JpaRepository<Voto, Integer> {
+>>>>>>> refs/remotes/origin/main
 }

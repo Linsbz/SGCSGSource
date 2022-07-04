@@ -4,7 +4,7 @@ import java.util.Date;
 import java.io.Serializable;
 import lombok.*;
 import javax.persistence.*;
-import javax.validation.constraints.*;
+// import javax.validation.constraints.*;
 
 import java.util.Collection;
 import javax.validation.Valid;

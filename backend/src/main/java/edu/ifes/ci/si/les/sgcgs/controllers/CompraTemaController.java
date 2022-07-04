@@ -58,7 +58,11 @@
 //     public ResponseEntity<Void> delete(@PathVariable Integer id) {
 //         service.delete(id);
 //         return ResponseEntity.noContent().build();
+
 //     }
+
+//     }
+
 
 //     @RequestMapping(value = "/findByUsuario/{idUsuario}", method = RequestMethod.GET)
 //     public ResponseEntity<Collection<Emprestimo>> findByUsuario(@PathVariable Integer idUsuario) {
@@ -69,3 +73,6 @@
 //     }
 
 // }
+
+//     }
+
