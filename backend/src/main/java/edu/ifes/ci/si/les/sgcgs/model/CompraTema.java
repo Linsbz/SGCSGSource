@@ -8,6 +8,11 @@
 // import org.springframework.validation.BindingResult;
 // import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
+// import java.io.Serializable;
+// import java.util.ArrayList;
+// import java.util.Collection;
+// import java.util.Date;
+
 // @Entity
 // @Data
 // @AllArgsConstructor
@@ -16,48 +21,34 @@
 // public class CompraTema implements Serializable{
 
 // 	private static final long serialVersionUID = 1L;
-
-//     @JsonIgnore
-//     @EmbeddedId
-//     private CompraTemaPK id = new CompraTemaPK();
+//     GregorianCalendar dataCal = new GregorianCalendar();
 
 //     @NotNull(message = "Data da Compra do Tema deve ser preenchida")
 //     @JsonFormat(pattern = "yyyy-MM-dd")
 //     private Date data;
 
+//     @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
+//     @JoinColumn(name = "compraTema_id")
+//     private Usuario usuario;
+
+//     @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
+//     @JoinColumn(name = "tema_id")
+//     private Tema tema;
+
 //     @Builder
-//     public CompraTema(Tema tema, Usuario usuario, Date data) {
-//         this.id.setCompra(emprestimo);
-//         this.id.setTema(tema);
-//         this.valor.setTemaV(tema);
+//     public CompraTema(Integer id, Date data, Tema tema, Usuario usuario) {
+//         this.id = id;
+//         this.data = data;
+//         this.tema = tema;
+//         this.usuario = usuario;
 //     }
 
-//     @JsonIgnore
-//     public Tema getTema() {
-//         return id.getTema();
+//     public getDataM(){
+//         return dataget(data.MONTH);
 //     }
 
-//     public void setTema(Tema tema) {
-//         id.setTema(tema);
-//     }
-
-//     public Tema setTemaV(Tema tema) {
-//         valor.setTemaV(tema);
-//     }
-
-//     public Tema getTemaV() {
-//         return id.getTemaV();
-//     }
-
-//     public Usuario getUsuario() {
-//         return id.getUsuario();
-//     }
-
-//     public void setUsuario(Usuario usuario) {
-//         id.setUsuario(usuario);
-//     }
-//     public void getDataM(){
-//         return id.data.get(data.MONTH);
+//     public getDataA(){
+//         return dataget(data.YEAR);
 //     }
 
 // }

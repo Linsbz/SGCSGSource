@@ -47,12 +47,12 @@
 // 		try {
 // 			if (verificarRegrasDeNegocio(obj)) {
 // 				obj.setId(null);
+// 				obj.setTema(obj.tema);
+// 				obj.setUsuario(obj.usuario);
 // 				for (Tema item : obj.getItens()) {
-// 					item.setCompraTema(obj);
-// 					item.getTema().setDisponivel(false); // Alterando a disponibilidade de fita
-// 					temaRepository.save(item.getTema());
+// 					item.getTema().setEstado(false);
 // 				}
-// 				return emprestimoRepository.save(obj);
+// 				return compraTemaRepository.save(obj);
 // 			}
 // 		} catch (DataIntegrityViolationException e) {
 // 			throw new DataIntegrityException("Campo(s) obrigatório(s) do Compra tema não foi(foram) preenchido(s): Usuario ou tema");
@@ -64,13 +64,7 @@
 // 	public CompraTema update(CompraTema obj) {
 // 		try {
 // 			findById(obj.getId());
-// 			fitaRepository.updateDisponivelByCompraTema(obj.getId()); // Alterando a disponibilidade das fitas não mais associadas a este empréstimo
-// 			for (Tema item : obj.getItens()) {
-// 				item.setCompraTema(obj);
-// 				item.getTema().setDisponivel(false); // Alterando a disponibilidade das novas fitas emprestadas
-// 				fitaRepository.save(item.getTema());
-// 			}
-// 			return emprestimoRepository.save(obj);
+// 			return compraTemaRepository.save(obj);
 // 		} catch (DataIntegrityViolationException e) {
 // 			throw new DataIntegrityException("Campo(s) obrigatório(s) do Compra Tema não foi(foram) preenchido(s): Usuario ou tema");
 // 		}
@@ -80,49 +74,38 @@
 // 	public void delete(Integer id) {
 // 		findById(id);
 // 		try {
-// 			compraTemaRepository.updateDisponivelByCompraTema(id); // Alterando a disponibilidade das fitas não mais associadas a este empréstimo
 // 			compraTemaRepository.deleteById(id);
 // 			compraTemaRepository.flush();  // Forçando a sincronização da(s) alteração(ões) e remoção neste momento (assim, diante de qualquer problema, o catch conseguirá capturar a exceção nesta camada de serviço) 
 // 		} catch (DataIntegrityViolationException e) {
-// 			throw new DataIntegrityException("Não é possível excluir um Compra Tema que possui multas ou devoluções!");
+// 			throw new DataIntegrityException("Não é possível excluir este Compra Tema!");
 // 		} 
 // 	}
 
-// 	// Implementando as regras de negócio relacionadas ao processo de negócio Empréstimo
-// 	// Regra de Negócio 1: Cliente não pode ter multas não pagas
-// 	// Regra de Negócio 2: Não podem ser emprestadas fitas reservadas para outros clientes
-// 	// Regra de Negócio 3: Não podem ser emprestadas fitas com status disponível false
 // 	public boolean verificarRegrasDeNegocio(CompraTema obj) {
 
-// 		// Regra de Negócio 1: Compra por cliente
+// 		// Regra de Negócio 1: Uma compr por tema
 // 		boolean R1 = false;
-// 		for (CompraTema item : obj.getItens()) {
 // 			// Verificando se existem reservas em aberto para a fita
-// 			CompraTema compraTema = compraTemaRepository.findBytemaID(item.getId().getTema().getId());
-// 			if (compraTema != null) {
-// 				R1 = true;
-// 			}
+// 		Collection <CompraTema> Col = compraTemaRepository.findBytemaID(obj.getId().getTema().getId());
+// 		if (col.size > 0) {
+// 			R1 = true;
 // 		}
+		
 // 		if (R1) {
 // 			throw new BusinessRuleException("Tema ja comprado!");
 // 		}
 
-// 		// Regra de Negócio 2: Não podem ser emprestadas fitas reservadas para outros clientes
+// 		// Regra de Negócio 2: Duas compra mes
 // 		Integer aux = 0;
-// 		for (CompraTema item : obj.getItens()) {
-// 			// Verificando se existem reservas em aberto para a fita
-// 			CompraTema compraTema = compraTemaRepository.findByData(item.getDataM());
-// 			if (compraTema != null) {
-// 				aux++;
-// 			}
-// 		}
-// 		if (aux>1) {
+// 		// Verificando se existem reservas em aberto para a fita
+// 		Collection <CompraTema> Col = compraTemaRepository.findByData(obj.getDataM(),obj.getDataA());
+// 		if (col.size>1) {
 // 			throw new BusinessRuleException("2 compras por mes!");
 // 		}
 // 	}
 
-// 	public Collection<Emprestimo> findByUsuario(Usuario usuario) {
-// 		return emprestimoRepository.findByUsuario(usuario);
+// 	public Collection<CompraTema> findByUsuario(Usuario usuario) {
+// 		return compraTemaRepository.findByUsuario(usuario);
 // 	}
 
-// }
+//  }
