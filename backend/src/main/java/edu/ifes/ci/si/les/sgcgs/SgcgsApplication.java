@@ -50,8 +50,8 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private AreaAnuncioRepository AreaAnuncioRepository;
 
-	// @Autowired
-	// private PostagemAnuncioRepository PostagemAnuncioRepository;
+	@Autowired
+	private PostagemAnuncioRepository PostagemAnuncioRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SgcgsApplication.class, args);
@@ -133,9 +133,9 @@ public class SgcgsApplication implements CommandLineRunner {
 		AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
 		AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
 
-		// PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
-		// PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
-		// PostagemAnuncioRepository.saveAll(Arrays.asList(pt1,pt2));
+		PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
+		PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
+		PostagemAnuncioRepository.saveAll(Arrays.asList(pt1,pt2));
 		
 	}
 
