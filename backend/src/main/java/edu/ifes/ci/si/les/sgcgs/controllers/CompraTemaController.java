@@ -58,9 +58,9 @@
 //     public ResponseEntity<Void> delete(@PathVariable Integer id) {
 //         service.delete(id);
 //         return ResponseEntity.noContent().build();
-<<<<<<< HEAD
+
 //     }
-=======
+
 //     }
 
 
@@ -76,4 +76,3 @@
 
 //     }
 
->>>>>>> 0b4bb853824feb2698ec9cd3945b021723c5718d

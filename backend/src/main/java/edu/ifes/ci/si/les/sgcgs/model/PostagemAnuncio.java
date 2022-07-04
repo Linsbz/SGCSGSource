@@ -1,48 +1,47 @@
-<<<<<<< HEAD
-package edu.ifes.ci.si.les.sgcgs.model;
 
-import java.util.Date;
-// import java.io.Serializable;
-// import java.util.ArrayList;
-// import java.util.Collection;
-import javax.persistence.*;
-import javax.validation.constraints.*;
-import lombok.*;
+// package edu.ifes.ci.si.les.sgcgs.model;
 
-@Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(of = {"id"})
+// import java.util.Date;
+// // import java.io.Serializable;
+// // import java.util.ArrayList;
+// // import java.util.Collection;
+// import javax.persistence.*;
+// import javax.validation.constraints.*;
+// import lombok.*;
 
-public class PostagemAnuncio {
+// @Entity
+// @Data
+// @AllArgsConstructor
+// @NoArgsConstructor
+// @EqualsAndHashCode(of = {"id"})
 
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+// public class PostagemAnuncio {
 
-	@NotNull(message = "Data do início do anúncio deve ser preenchida")
-	@Column(length = 8)
-    @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
-	private Date dataInicio;
+// 	@Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+// 	private Integer id;
 
-	@NotNull(message = "Data do fim do anúncio deve ser preenchida")
-	@Column(length = 8)
-    @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
-	private Date dataFim;
+// 	@NotNull(message = "Data do início do anúncio deve ser preenchida")
+// 	@Column(length = 8)
+//     @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
+// 	private Date dataInicio;
 
-	@NotNull(message = "O Anúncio deve ser preenchido")
-    @ManyToOne
-	@JoinColumn(name = "anuncio_id")
-	private Anuncio anuncio;
+// 	@NotNull(message = "Data do fim do anúncio deve ser preenchida")
+// 	@Column(length = 8)
+//     @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
+// 	private Date dataFim;
 
-	@NotNull(message = "Área de anúncio deve ser preenchida")
-    @ManyToOne
-    @JoinColumn(name = "areasAnuncio_id")
-	private AreaAnuncio areasAnuncio;
+// 	@NotNull(message = "O Anúncio deve ser preenchido")
+//     @ManyToOne
+// 	@JoinColumn(name = "anuncio_id")
+// 	private Anuncio anuncio;
 
-}
-=======
+// 	@NotNull(message = "Área de anúncio deve ser preenchida")
+//     @ManyToOne
+//     @JoinColumn(name = "areasAnuncio_id")
+// 	private AreaAnuncio areasAnuncio;
+
+// }
 // package edu.ifes.ci.si.les.sgcgs.model;
 
 // import java.util.Date;
@@ -95,4 +94,4 @@ public class PostagemAnuncio {
 // //     }
 
 // }
->>>>>>> 79434596674b0fe6c609495fb58b3e15a983acd3
+

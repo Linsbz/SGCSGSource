@@ -17,14 +17,11 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	//@Autowired
-	//private FormularioRepository formularioRepository;
+	@Autowired
+	private FormularioRepository formularioRepository;
 
-	//@Autowired
-	//private CampoDeFormularioRepository campoDeFormularioRepository;
-
-	//@Autowired
-	//private RespostaFormularioRepository respostaFormularioRepository;
+	@Autowired
+	private RespostaFormularioRepository respostaFormularioRepository;
 
 	@Autowired
 	private NoticiaRepository noticiaRepository;
@@ -47,11 +44,11 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private VotoRepository VotoRepository;
 
-	// @Autowired
-	// private AnuncioRepository AnuncioRepository;
+	@Autowired
+	private AnuncioRepository AnuncioRepository;
 
-	// @Autowired
-	// private AreaAnuncioRepository AreaAnuncioRepository;
+	@Autowired
+	private AreaAnuncioRepository AreaAnuncioRepository;
 
 	// @Autowired
 	// private PostagemAnuncioRepository PostagemAnuncioRepository;
@@ -71,23 +68,32 @@ public class SgcgsApplication implements CommandLineRunner {
 		Usuario u6 = new Usuario(null, "Rafael", "rafael@sgcgs.com.br","1234", 0);
 		usuarioRepository.saveAll(Arrays.asList(u1,u2,u3,u4,u5, u6));
 		
-		//Formulario f1 = new Formulario(null, "Qual sua opinião sobre o SGCGS?", true, true, u5);
-		//Formulario f2 = new Formulario(null, "Qual sua opinião sobre o Wix?", false, false, u5);
+		Formulario f1 = new Formulario(null, "Qual sua opinião sobre o SGCGS?", false, false, u5);
+		Formulario f2 = new Formulario(null, "Qual sua opinião sobre o Wix?", true, true, u5);
 		
-		//CampoDeFormulario c1f1 = new CampoDeFormulario(null, "Conhece o SGCGS?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f1);
-		//CampoDeFormulario c2f1 = new CampoDeFormulario(null, "Já utilizou o SGCGS?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f1);
+		CampoDeFormulario c1f1 = new CampoDeFormulario(null, "Conhece o SGCGS?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f1);
+		CampoDeFormulario c2f1 = new CampoDeFormulario(null, "Já utilizou o SGCGS?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f1);
 		
-		//CampoDeFormulario c1f2 = new CampoDeFormulario(null, "Conhece o Wix?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f2);
-		//CampoDeFormulario c2f2 = new CampoDeFormulario(null, "Já utilizou o Wix?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f2);
+		CampoDeFormulario c1f2 = new CampoDeFormulario(null, "Conhece o Wix?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f2);
+		CampoDeFormulario c2f2 = new CampoDeFormulario(null, "Já utilizou o Wix?", "radio", "{\"options\": [{\"value\":\"s\", \"name\": \"sim\"}, {\"value\":\"n\", \"name\": \"não\"}]}", true, f2);
 		
-		//f1.setItens(Arrays.asList(c1f1, c2f1));
-        //f2.setItens(Arrays.asList(c1f2,c2f2));
+		f1.setItens(Arrays.asList(c1f1, c2f1));
+        f2.setItens(Arrays.asList(c1f2,c2f2));
 		
-		//formularioRepository.saveAll(Arrays.asList(f1,f2));
+		formularioRepository.saveAll(Arrays.asList(f1,f2));
 		
-		//RespostaFormulario rf1 = new RespostaFormulario(null, new Date(2022, 5, 20, 1, 42), u2, f2);
-		//RespostaFormulario rf2 = new RespostaFormulario(null, new Date(2022, 5, 20, 1, 45), u3, f2);
-		//respostaFormularioRepository.saveAll(Arrays.asList(rf1,rf2));
+		RespostaFormulario rf1 = new RespostaFormulario(null, new Date(2022, 5, 20, 1, 42), u2, f2);
+		RespostaFormulario rf2 = new RespostaFormulario(null, new Date(2022, 5, 20, 1, 45), u3, f2);
+		
+		RespostaCampo rc1f1 = new RespostaCampo(null, "Sim", rf1, c1f2);
+		RespostaCampo rc2f1 = new RespostaCampo(null, "Sim", rf1, c1f2);
+
+		RespostaCampo rc1f2 = new RespostaCampo(null, "Sim", rf2, c1f2);
+		RespostaCampo rc2f2 = new RespostaCampo(null, "Não", rf2, c1f2);		
+
+		rf1.setRespostaCampos(Arrays.asList(rc1f1, rc2f1));
+		rf2.setRespostaCampos(Arrays.asList(rc1f2, rc2f2));
+		respostaFormularioRepository.saveAll(Arrays.asList(rf1,rf2));		
 
 		Noticia n1 = new Noticia(null, "Quem irá vencer as eleições em 2022?", "Lula ou Bolsonaro?", "Eleição super disputada neste ano. Leia mais sobre", "/dados/capa/noticias", "/eleicao-2022", u4);
 		Noticia n2 = new Noticia(null, "Tudo sobre kubernetes", "A inovação em escalonamento", "Venha saber mais sobre Kubernetes", "/dados/capa/noticias", "/tudo-sobre-kubernetes", u4);
@@ -119,13 +125,13 @@ public class SgcgsApplication implements CommandLineRunner {
 		Voto v2 = new Voto(null, new Date(2022, 5, 20, 1, 44), ov2, u3);
 		VotoRepository.saveAll(Arrays.asList(v1,v2));
 		
-		// Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
-		// Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
-		// AnuncioRepository.saveAll(Arrays.asList(an1,an2));
+		Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
+		Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
+		AnuncioRepository.saveAll(Arrays.asList(an1,an2));
 
-		// AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
-		// AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
-		// AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
+		AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
+		AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
+		AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
 
 		// PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
 		// PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);
