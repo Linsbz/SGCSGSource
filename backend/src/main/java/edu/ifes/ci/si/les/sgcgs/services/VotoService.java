@@ -1,16 +1,19 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
 import java.util.List;
+import java.util.Collection;
+import java.util.NoSuchElementException;
+
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import edu.ifes.ci.si.les.sgcgs.model.Voto;
 import edu.ifes.ci.si.les.sgcgs.repositories.VotoRepository;
-
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
-import org.springframework.dao.DataIntegrityViolationException;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
-import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
-import java.util.NoSuchElementException;
 
 /** @author Hilda Biazatti */
 
@@ -33,6 +36,7 @@ public class VotoService {
         return repository.findAll();
     }
 
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public Voto insert(Voto obj) {
         //return repository.save(obj);
         obj.setId(null);
@@ -62,7 +66,7 @@ public class VotoService {
         try {
             repository.deleteById(id);
         } catch (DataIntegrityViolationException e) {
-            throw new DataIntegrityException("Não é possível excluir um voto!");
+            throw new DataIntegrityException("Não é possível excluir o voto!");
         }
     }
 
