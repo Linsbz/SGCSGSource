@@ -1,4 +1,4 @@
-// package edu.ifes.ci.si.les.scv.services;
+// package edu.ifes.ci.si.les.sgcgs.services;
 
 // import java.util.Collection;
 // import java.util.NoSuchElementException;
@@ -9,15 +9,15 @@
 // import org.springframework.transaction.annotation.Propagation;
 // import org.springframework.transaction.annotation.Transactional;
 
-// import edu.ifes.ci.si.les.scv.model.Usuario;
-// import edu.ifes.ci.si.les.scv.model.CompraTema;
-// import edu.ifes.ci.si.les.scv.model.Tema;
-// import edu.ifes.ci.si.les.scv.repositories.UsuarioRepository;
-// import edu.ifes.ci.si.les.scv.repositories.CompraTemaRepository;
-// import edu.ifes.ci.si.les.scv.repositories.TemaRepository;
-// import edu.ifes.ci.si.les.scv.services.exceptions.BusinessRuleException;
-// import edu.ifes.ci.si.les.scv.services.exceptions.DataIntegrityException;
-// import edu.ifes.ci.si.les.scv.services.exceptions.ObjectNotFoundException;
+// import edu.ifes.ci.si.les.sgcgs.model.Usuario;
+// import edu.ifes.ci.si.les.sgcgs.model.CompraTema;
+// import edu.ifes.ci.si.les.sgcgs.model.Tema;
+// import edu.ifes.ci.si.les.sgcgs.repositories.UsuarioRepository;
+// import edu.ifes.ci.si.les.sgcgs.repositories.CompraTemaRepository;
+// import edu.ifes.ci.si.les.sgcgs.repositories.TemaRepository;
+// import edu.ifes.ci.si.les.sgcgs.services.exceptions.BusinessRuleException;
+// import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
+// import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
 
 // @Service
 // public class CompraTemaService {

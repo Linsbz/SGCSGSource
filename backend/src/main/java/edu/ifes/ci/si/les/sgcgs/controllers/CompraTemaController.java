@@ -1,4 +1,4 @@
-// package edu.ifes.ci.si.les.scv.controllers;
+// package edu.ifes.ci.si.les.sgcgs.controllers;
 
 // import java.util.Collection;
 
@@ -13,11 +13,11 @@
 // import org.springframework.web.bind.annotation.RequestMethod;
 // import org.springframework.web.bind.annotation.RestController;
 
-// import edu.ifes.ci.si.les.scv.model.Tema;
-// import edu.ifes.ci.si.les.scv.model.Usuario;
-// import edu.ifes.ci.si.les.scv.model.CompraTema;
-// import edu.ifes.ci.si.les.scv.services.CompraTemaService;
-// import edu.ifes.ci.si.les.scv.services.exceptions.ConstraintException;
+// import edu.ifes.ci.si.les.sgcgs.model.Tema;
+// import edu.ifes.ci.si.les.sgcgs.model.Usuario;
+// import edu.ifes.ci.si.les.sgcgs.model.CompraTema;
+// import edu.ifes.ci.si.les.sgcgs.services.CompraTemaService;
+// import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
 // @RestController
 // @RequestMapping(value = "/compratema")
