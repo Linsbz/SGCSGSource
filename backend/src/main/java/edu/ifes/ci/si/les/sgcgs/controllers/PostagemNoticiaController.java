@@ -46,4 +46,4 @@ public class PostagemNoticiaController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-}
+} 

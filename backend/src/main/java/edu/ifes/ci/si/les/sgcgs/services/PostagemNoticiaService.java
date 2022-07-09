@@ -69,7 +69,7 @@ public class PostagemNoticiaService {
                 return repository.save(obj);
         } catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Campo obrigatório de notícia não foi preenchido!");
-        }
+        } 
     }
 
 

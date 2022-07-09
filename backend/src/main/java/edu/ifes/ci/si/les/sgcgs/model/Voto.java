@@ -15,7 +15,7 @@ import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
 @Entity
 @Data
-@AllArgsConstructor
+// @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 public class Voto implements Serializable{

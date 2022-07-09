@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 // import edu.ifes.ci.si.les.sgcgs.model.Noticia;
 import edu.ifes.ci.si.les.sgcgs.model.PostagemNoticia;
 // import edu.ifes.ci.si.les.sgcgs.model.Noticia;
- 
+  
 
 /** @author Júlia de Souza Borges */
     
@@ -27,4 +27,11 @@ public interface PostagemNoticiaRepository extends JpaRepository<PostagemNoticia
         @Transactional(readOnly = true)
         @Query(value = "SELECT COUNT(*) < 3 AS VALIDADESTAQUE FROM POSTAGEM_NOTICIA WHERE DESTAQUE = TRUE", nativeQuery = true)
         public boolean findNoticiaDestaque();
+
+        //RELATÓRIO:
+        //SELECT data_fim, data_inicio FROM POSTAGEM_NOTICIA 
+        //Tempo em destaque
+        @Transactional(readOnly = true)
+        @Query(value = "SELECT ?1, ?2 FROM POSTAGEM_NOTICIA", nativeQuery = true)
+        public Collection<?> findTempoDestaque(String data_fim, String data_inicio);
 }
