@@ -8,17 +8,15 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.ifes.ci.si.les.sgcgs.model.Voto;
+import edu.ifes.ci.si.les.sgcgs.model.Enquete;
 
 /** @author Hilda Biazatti */
 
 @Repository
 public interface VotoRepository extends JpaRepository<Voto, Integer> {
-    @Transactional(readOnly = true)
-    public Collection<Voto> findByCliente(Usuario usuario);
-
     //RN 1: Usuário não pode votar em enquetes que já votou
     @Transactional(readOnly = true)
-    @Query(value = "SELECT * FROM voto AS voto WHERE voto.enquete_id = ?1 AND voto.usuario_v = ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM voto WHERE enquete_v = ?1 AND usuario_v = ?2", nativeQuery = true)
     public Collection<Voto> findByEnqueteId(Integer idEnquete, Integer idUsuario);
 
     //RN 2: Usuário só pode votar em enquetes abertas

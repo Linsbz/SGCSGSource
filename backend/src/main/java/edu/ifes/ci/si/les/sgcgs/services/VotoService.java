@@ -11,8 +11,10 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.ifes.ci.si.les.sgcgs.model.Voto;
+import edu.ifes.ci.si.les.sgcgs.model.Enquete;
 import edu.ifes.ci.si.les.sgcgs.repositories.VotoRepository;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.BusinessRuleException;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
 
 /** @author Hilda Biazatti */
@@ -48,6 +50,7 @@ public class VotoService {
         }catch (DataIntegrityViolationException e) {
             throw new DataIntegrityException("Escolha uma opção para efetivar o voto!");
         }
+        return null;
     }
 
     public Voto update(Voto obj) {
@@ -71,20 +74,25 @@ public class VotoService {
     }
 
     public boolean verificarRegrasDeNegocio(Voto obj) {
+        boolean real = true;
         //RN 1: Usuário não pode votar em enquetes que já votou
         boolean R1 = false;
-        Collection <Voto> Col = votoRepository.findByEnqueteId(obj.getEnquete().getId(), obj.getUsuario().getId());
-        if (col.size > 0) {
+        Collection <Voto> Col = repository.findByEnqueteId(obj.getEnquete().getId(), obj.getUsuario().getId());
+        if (Col.size() > 0) {
             R1 = true;
+
+            real = false;
         }
         if (R1) {
             throw new BusinessRuleException("Usuario já votou nesta enquete!");
         }
 
         //RN 2: Usuário só pode votar em enquetes abertas
-        Enquete e = votoRepository.findByEnqueteAberta(obj.getEnquete().getId());
+        Enquete e = repository.findByEnqueteAberta(obj.getEnquete().getId());
         if (e.getEstado() == false) {
+            real = false;
             throw new BusinessRuleException("Não é possível votar pois essa enquete está fechada!");
         }
+        return real;
 	}
 }
