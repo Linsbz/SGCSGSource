@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import edu.ifes.ci.si.les.sgcgs.model.AreaAnuncio;
+// import edu.ifes.ci.si.les.sgcgs.model.AreaAnuncio;
 import edu.ifes.ci.si.les.sgcgs.model.PostagemAnuncio;
-import edu.ifes.ci.si.les.sgcgs.model.Anuncio;
-import edu.ifes.ci.si.les.sgcgs.repositories.AreaAnuncioRepository;
+// import edu.ifes.ci.si.les.sgcgs.model.Anuncio;
+// import edu.ifes.ci.si.les.sgcgs.repositories.AreaAnuncioRepository;
 import edu.ifes.ci.si.les.sgcgs.repositories.PostagemAnuncioRepository;
-import edu.ifes.ci.si.les.sgcgs.repositories.AnuncioRepository;
+// import edu.ifes.ci.si.les.sgcgs.repositories.AnuncioRepository;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.BusinessRuleException;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.DataIntegrityException;
 import edu.ifes.ci.si.les.sgcgs.services.exceptions.ObjectNotFoundException;
@@ -24,10 +24,10 @@ public class PostagemAnuncioService {
 
 	@Autowired
 	private PostagemAnuncioRepository postagemAnuncioRepository;
-	@Autowired
-	private AnuncioRepository AnuncioRepository;
-	@Autowired
-	private AreaAnuncioRepository AreaAnuncioRepository;
+	// @Autowired
+	// private AnuncioRepository AnuncioRepository;
+	// @Autowired
+	// private AreaAnuncioRepository AreaAnuncioRepository;
 
 	public PostagemAnuncio findById(Integer id) {
 		try {
@@ -93,7 +93,7 @@ public class PostagemAnuncioService {
 		}
 
 		// Regra de Negócio 2: O anuncio só pode estar em uma área de anúncio
-		Integer aux = 0;
+		// Integer aux = 0;
 		// Verificando se existem reservas em aberto para a fita
 		Collection <PostagemAnuncio> Col2 = postagemAnuncioRepository.findByAnuncio(obj.getAnuncio().getId());
 		if (Col2.size() > 0) {

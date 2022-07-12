@@ -12,7 +12,7 @@ import lombok.*;
 
 @Entity
 @Data
-@AllArgsConstructor
+// @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 public class Voto{

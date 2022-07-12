@@ -6,6 +6,8 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /** @author Júlia de Souza Borges */
 
 @Entity
@@ -24,12 +26,16 @@ public class PostagemNoticia implements Serializable{
 	@Column(length = 8)
 	@NotBlank(message = "Data de início deve ser preenchida!")
 	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
-	private Date dataInicio;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	// private Date dataInicio;
+	private String dataInicio;
 
 	@Column(length = 8)
 	@NotBlank(message = "Data de fim deve ser preenchida!")
 	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
-	private Date dataFim;
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	// private Date dataFim;
+	private String dataFim;
 
 	private Boolean destaque;
 

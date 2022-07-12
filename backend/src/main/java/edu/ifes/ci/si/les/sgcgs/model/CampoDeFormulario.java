@@ -1,6 +1,6 @@
 package edu.ifes.ci.si.les.sgcgs.model;
 
-import java.io.Serializable;
+// import java.io.Serializable;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;

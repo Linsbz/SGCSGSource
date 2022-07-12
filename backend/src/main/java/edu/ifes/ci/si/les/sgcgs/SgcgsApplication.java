@@ -41,8 +41,8 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private OpcaoVotoRepository OpcaoVotoRepository;
 
-	@Autowired
-	private VotoRepository VotoRepository;
+	// @Autowired
+	// private VotoRepository VotoRepository;
 
 	@Autowired
 	private AnuncioRepository AnuncioRepository;
@@ -106,9 +106,10 @@ public class SgcgsApplication implements CommandLineRunner {
 		Noticia n2 = new Noticia(null, "Tudo sobre kubernetes", "A inovação em escalonamento", "Venha saber mais sobre Kubernetes", "/dados/capa/noticias", "/tudo-sobre-kubernetes", u4);
 		noticiaRepository.saveAll(Arrays.asList(n1,n2));
 
-		PostagemNoticia p1 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n1);
-		PostagemNoticia p2 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n2);
-		PostagemNoticiaRepository.saveAll(Arrays.asList(p1,p2));
+		// PostagemNoticia p1 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n1);
+		// PostagemNoticia p2 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n2);
+		PostagemNoticia p1 = new PostagemNoticia(null, "22-07-11", "22-07-11", true, u4, n1);
+		PostagemNoticiaRepository.saveAll(Arrays.asList(p1));
 		
 		Tema t1 = new Tema(null, "teste", 30, false, "/dados/tema/img0");
 		Tema t2 = new Tema(null, "teste2", 50, false, "/dados/tema/img1");
@@ -129,9 +130,14 @@ public class SgcgsApplication implements CommandLineRunner {
 		OpcaoVoto ov4 = new OpcaoVoto(null, "Botafogo", e1);
 		OpcaoVotoRepository.saveAll(Arrays.asList(ov1,ov2,ov3,ov4));
 
-		Voto v1 = new Voto(null, new Date(2022, 5, 20), ov1,e1, u2);
-		Voto v2 = new Voto(null, new Date(2022, 5, 30), ov2,e2, u4);
-		VotoRepository.saveAll(Arrays.asList(v1,v2));
+		
+		// Voto v1 = new Voto(null, new Date(2022, 5, 20, 1, 42), ov1, u2);
+		// Voto v2 = new Voto(null, new Date(2022, 5, 20, 1, 44), ov2, u3);
+		// VotoRepository.saveAll(Arrays.asList(v1,v2));
+
+		// Voto v1 = new Voto(null, new Date(2022, 5, 20), ov1,e1, u2);
+		// Voto v2 = new Voto(null, new Date(2022, 5, 30), ov2,e2, u4);
+
 		
 		Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
 		Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
