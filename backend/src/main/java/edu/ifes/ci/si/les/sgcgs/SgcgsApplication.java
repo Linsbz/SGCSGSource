@@ -32,8 +32,8 @@ public class SgcgsApplication implements CommandLineRunner {
 	@Autowired
 	private TemaRepository TemaRepository;
 
-	// @Autowired
-	// private CompraTemaRepository CompraTemaRepository;
+	@Autowired
+	private CompraTemaRepository compraTemaRepository;
 
 	@Autowired
 	private EnqueteRepository EnqueteRepository;
@@ -66,7 +66,14 @@ public class SgcgsApplication implements CommandLineRunner {
 		Usuario u4 = new Usuario(null, "Júlia", "julia@sgcgs.com.br","1234", 1);
 		Usuario u5 = new Usuario(null, "Lincoln", "lincoln@sgcgs.com.br","1234", 1);
 		Usuario u6 = new Usuario(null, "Rafael", "rafael@sgcgs.com.br","1234", 0);
-		usuarioRepository.saveAll(Arrays.asList(u1,u2,u3,u4,u5, u6));
+		Usuario u7 = new Usuario(null, "Barros", "barros@sgcgs.com.br","1234", 2);
+		Usuario u8 = new Usuario(null, "Gaspar", "gaspar@sgcgs.com.br","1234", 0);
+		Usuario u9 = new Usuario(null, "Hilda", "hilda@sgcgs.com.br","1234", 0);
+		Usuario u10 = new Usuario(null, "Júlia", "julia@sgcgs.com.br","1234", 1);
+		Usuario u11 = new Usuario(null, "Lincoln", "lincoln@sgcgs.com.br","1234", 1);
+		Usuario u12 = new Usuario(null, "Rafael", "rafael@sgcgs.com.br","1234", 0);
+		Usuario u13 = new Usuario(null, "Rafael", "rafael@sgcgs.com.br","1234", 0);
+		usuarioRepository.saveAll(Arrays.asList(u1,u2,u3,u4,u5, u6,u7,u8,u9,u10,u11,u12,u13));
 		
 		Formulario f1 = new Formulario(null, "Qual sua opinião sobre o SGCGS?", false, false, u5);
 		Formulario f2 = new Formulario(null, "Qual sua opinião sobre o Wix?", true, true, u5);
@@ -99,17 +106,19 @@ public class SgcgsApplication implements CommandLineRunner {
 		Noticia n2 = new Noticia(null, "Tudo sobre kubernetes", "A inovação em escalonamento", "Venha saber mais sobre Kubernetes", "/dados/capa/noticias", "/tudo-sobre-kubernetes", u4);
 		noticiaRepository.saveAll(Arrays.asList(n1,n2));
 
-		PostagemNoticia p1 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n1);
-		PostagemNoticia p2 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n2);
-		PostagemNoticiaRepository.saveAll(Arrays.asList(p1,p2));
+		// PostagemNoticia p1 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n1);
+		// PostagemNoticia p2 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n2);
+		PostagemNoticia p1 = new PostagemNoticia(null, "22-07-11", "22-07-11", true, u4, n1);
+		PostagemNoticiaRepository.saveAll(Arrays.asList(p1));
 		
 		Tema t1 = new Tema(null, "teste", 30, false, "/dados/tema/img0");
 		Tema t2 = new Tema(null, "teste2", 50, false, "/dados/tema/img1");
-		TemaRepository.saveAll(Arrays.asList(t1,t2));
+		Tema t3 = new Tema(null, "teste3", 50, false, "/dados/tema/img3");
+		TemaRepository.saveAll(Arrays.asList(t1,t2,t3));
 
-		// CompraTema ct1 = new CompraTema(null, new Date(2022, 5, 20, 1, 42), 30, u5, t1);
-		// CompraTema ct2 = new CompraTema(null, new Date(2022, 5, 20, 1, 44), 50, u6, t2);
-		// CompraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
+		CompraTema ct1 = new CompraTema(null, new Date(2022, 5, 20, 1, 42),u2,t1);
+		CompraTema ct2 = new CompraTema(null, new Date(2022, 5, 30, 1, 42),u4,t2);
+		compraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
 		
 		Enquete e1 = new Enquete(null, "Melhor time do Rio", true, true, u3);
 		Enquete e2 = new Enquete(null, "Qual a sua área em TI?", true, true, u4);
@@ -120,18 +129,25 @@ public class SgcgsApplication implements CommandLineRunner {
 		OpcaoVoto ov3 = new OpcaoVoto(null, "Fluminense", e1);
 		OpcaoVoto ov4 = new OpcaoVoto(null, "Botafogo", e1);
 		OpcaoVotoRepository.saveAll(Arrays.asList(ov1,ov2,ov3,ov4));
+
 		
 		// Voto v1 = new Voto(null, new Date(2022, 5, 20, 1, 42), ov1, u2);
 		// Voto v2 = new Voto(null, new Date(2022, 5, 20, 1, 44), ov2, u3);
 		// VotoRepository.saveAll(Arrays.asList(v1,v2));
+
+		// Voto v1 = new Voto(null, new Date(2022, 5, 20), ov1,e1, u2);
+		// Voto v2 = new Voto(null, new Date(2022, 5, 30), ov2,e2, u4);
+
 		
 		Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
 		Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
-		AnuncioRepository.saveAll(Arrays.asList(an1,an2));
+		Anuncio an3 = new Anuncio(null, "Relogio", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
+		AnuncioRepository.saveAll(Arrays.asList(an1,an2, an3));
 
 		AreaAnuncio a1 = new AreaAnuncio(null, "Topo");
 		AreaAnuncio a2 = new AreaAnuncio(null, "Lateral");
-		AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2));
+		AreaAnuncio a3 = new AreaAnuncio(null, "Baixo");
+		AreaAnuncioRepository.saveAll(Arrays.asList(a1,a2, a3));
 
 		PostagemAnuncio pt1 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an1 ,a1);
 		PostagemAnuncio pt2 = new PostagemAnuncio(null, new Date(2022, 5, 20), new Date(2022, 5, 25),an2 ,a2);

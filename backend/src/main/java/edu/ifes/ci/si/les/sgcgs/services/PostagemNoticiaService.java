@@ -1,5 +1,7 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
+import java.util.Collection;
+import java.util.Date;
 // import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,4 +116,17 @@ public class PostagemNoticiaService {
            return true;
         }
     }
+
+    
+		// public Collection<?> findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo(String inicio, String termino) {
+		// 	return emprestimoRepository.findTotaisAndQuantidadesEmprestimosOfClientesByPeriodo(inicio, termino);
+		// }
+    public Collection<?>findTempoDestaque(String data_fim, String data_inicio){
+        return repository.findTempoDestaque(data_fim, data_inicio);
+    }
+
+    public Integer findQuantidadeNoticiaDestaque() {
+        return repository.findQuantidadeNoticiaDestaque();
+    }
+
 }

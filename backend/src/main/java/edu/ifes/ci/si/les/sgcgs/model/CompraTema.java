@@ -1,54 +1,49 @@
-// package edu.ifes.ci.si.les.sgcgs.model;
+package edu.ifes.ci.si.les.sgcgs.model;
 
-// import java.io.Serializable;
-// import lombok.*;
-// import javax.persistence.*;
-// import javax.validation.constraints.*;
-// import javax.validation.Valid;
-// import org.springframework.validation.BindingResult;
-// import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
+import java.io.Serializable;
+import lombok.*;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
-// import java.io.Serializable;
-// import java.util.ArrayList;
-// import java.util.Collection;
-// import java.util.Date;
+import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
 
-// @Entity
-// @Data
-// @AllArgsConstructor
-// @NoArgsConstructor
-// @EqualsAndHashCode(of = {"id"})
-// public class CompraTema implements Serializable{
+import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
 
-// 	private static final long serialVersionUID = 1L;
-//     GregorianCalendar dataCal = new GregorianCalendar();
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Date;
 
-//     @NotNull(message = "Data da Compra do Tema deve ser preenchida")
-//     @JsonFormat(pattern = "yyyy-MM-dd")
-//     private Date data;
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(of = {"id"})
 
-//     @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
-//     @JoinColumn(name = "compraTema_id")
-//     private Usuario usuario;
+//By Gabriel
 
-//     @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
-//     @JoinColumn(name = "tema_id")
-//     private Tema tema;
+public class CompraTema implements Serializable{
 
-//     @Builder
-//     public CompraTema(Integer id, Date data, Tema tema, Usuario usuario) {
-//         this.id = id;
-//         this.data = data;
-//         this.tema = tema;
-//         this.usuario = usuario;
-//     }
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
-//     public getDataM(){
-//         return dataget(data.MONTH);
-//     }
+	@NotNull(message = "Data da compra deve ser preenchida")
+	@Column(length = 8)
+    @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
+	private Date data;
 
-//     public getDataA(){
-//         return dataget(data.YEAR);
-//     }
+    @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
+    @ManyToOne
+    @JoinColumn(name = "compraTema_id")
+    private Usuario usuario;
 
-// }
+    @NotNull(message = "O Tema do Compra Tema deve ser preenchido")
+    @ManyToOne
+    @JoinColumn(name = "tema_id")
+    private Tema tema;
+
+}

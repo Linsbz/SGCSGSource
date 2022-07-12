@@ -2,54 +2,52 @@ package edu.ifes.ci.si.les.sgcgs.model;
 
 import java.util.Date;
 import java.io.Serializable;
-import lombok.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import lombok.*;
 
-import java.util.Collection;
-import javax.validation.Valid;
-import org.springframework.validation.BindingResult;
-import edu.ifes.ci.si.les.sgcgs.services.exceptions.ConstraintException;
-
-/** @author Hilda Biazatti */
+//By Hilda
 
 @Entity
 @Data
 // @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
-public class Voto implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+public class Voto{
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull(message = "Data do voto eve ser preenchida")
 	@Column(length = 8)
-	@NotNull(message = "Data do voto deve ser preenchida!")
-	@Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
+    @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
 	private Date data;
 
-	@ManyToOne
-	@JoinColumn(name = "opcao_voto")
+	@NotNull(message = "A opção de voto deve ser preenchida")
+    @ManyToOne
+    @JoinColumn(name = "opcaovoto_id")
 	private OpcaoVoto opcaoVoto;
 
-	@ManyToOne
+	@NotNull(message = "A enquete deve ser preenchida")
+    @ManyToOne
 	@JoinColumn(name = "enquete_v")
 	private Enquete enquete;
 
-	@ManyToOne
-	@JoinColumn(name = "usuario_v")
+	@NotNull(message = "Usuario deve ser preenchido")
+    @ManyToOne
+    @JoinColumn(name = "usuario_v")
 	private Usuario usuario;
 
-	@Builder
-    public Voto(Integer id, Date data, OpcaoVoto opcaoVoto, Enquete enquete, Usuario usuario) {
-        this.id = id;
-        this.data = data;
-        this.opcaoVoto = opcaoVoto;
-        this.enquete = enquete;
-        this.usuario = usuario;
-    }
+	// @Builder
+    // public Voto(Integer id, Date data, OpcaoVoto opcaoVoto, Enquete enquete, Usuario usuario) {
+    //     this.id = id;
+    //     this.data = data;
+    //     this.opcaoVoto = opcaoVoto;
+    //     this.enquete = enquete;
+    //     this.usuario = usuario;
+    // }
 
 }

@@ -1,6 +1,6 @@
 package edu.ifes.ci.si.les.sgcgs.controllers;
 
-import java.util.Collection;
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,4 +46,19 @@ public class PostagemNoticiaController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+    
+    @RequestMapping(value = "/tempodestaque/{data_fim}/{data_inicio}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<?>> findTempoDestaque(@PathVariable String data_fim, @PathVariable String data_inicio) {
+        Collection<?> collection = service.findTempoDestaque(data_fim, data_inicio);
+        System.out.println(collection);
+        return ResponseEntity.ok().body(collection);
+    }
+
+    @RequestMapping(value = "/noticiasdestaque/", method = RequestMethod.GET)
+    public ResponseEntity<Integer> findQuantidadeNoticiaDestaque() {
+        Integer quantidade = service.findQuantidadeNoticiaDestaque();
+        return ResponseEntity.ok().body(quantidade);
+    }
+
+
 } 
