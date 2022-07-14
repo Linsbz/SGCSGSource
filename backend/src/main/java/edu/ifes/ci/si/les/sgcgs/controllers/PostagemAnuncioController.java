@@ -47,4 +47,10 @@ public class PostagemAnuncioController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
+
+    @RequestMapping(value = "/relatorio", method = RequestMethod.GET)
+    public ResponseEntity<Integer[]> findVisual() {
+        Integer x[] = service.findByVisual();
+        return ResponseEntity.ok().body(x);
+    }
 }

@@ -1,10 +1,12 @@
 package edu.ifes.ci.si.les.sgcgs.controllers;
 
+import java.sql.Date;
 import java.util.Collection;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -63,5 +65,13 @@ public class CompraTemaController {
         return ResponseEntity.noContent().build();
 
     }
-
+    
+    @RequestMapping(value = "/relatorio/findTotal/{inicio}", method = RequestMethod.GET)
+    public ResponseEntity<Float> findTotal(@PathVariable String inicio) {
+        float x = service.findTotal(inicio);
+        return ResponseEntity.ok().body(x);
+    }
+    
+    
+        
 }
