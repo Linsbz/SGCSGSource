@@ -22,4 +22,8 @@ public interface PostagemAnuncioRepository extends JpaRepository<PostagemAnuncio
     @Transactional(readOnly = true)
     @Query(value = "select * from POSTAGEM_ANUNCIO where ANUNCIO_ID = ?1", nativeQuery = true)
     public Collection<PostagemAnuncio> findByAnuncio(Integer idAnuncioA);
+
+    @Transactional(readOnly = true)
+    @Query(value = "SELECT COUNT(*) FROM postagem_anuncio GROUP BY AREA_ANUNCIO_ID", nativeQuery = true)
+    public Integer[] findByVisual();
 }
