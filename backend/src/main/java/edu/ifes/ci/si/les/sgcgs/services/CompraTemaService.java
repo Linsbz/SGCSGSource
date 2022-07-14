@@ -1,10 +1,12 @@
 package edu.ifes.ci.si.les.sgcgs.services;
 
+import java.sql.Date;
 import java.util.Collection;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -94,13 +96,17 @@ public class CompraTemaService {
 		// Regra de Negócio 2: Duas compra mes
 		Integer aux = 0;
 		// Verificando se existem reservas em aberto para a fita
-		Collection <CompraTema> Col2 = compraTemaRepository.findByData(obj.getData());
+		Collection <CompraTema> Col2 = compraTemaRepository.findByData(obj.getTempo());
 		if (Col2.size()>1) {
 			real = false;
 			throw new BusinessRuleException("2 compras por mes!");
 		}
 
 		return real;
+	}
+
+	public float findTotal(String inicio) {
+		return compraTemaRepository.findTotal(inicio);
 	}
 
  }
