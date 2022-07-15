@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import edu.ifes.ci.si.les.sgcgs.model.Formulario;
+//import edu.ifes.ci.si.les.sgcgs.model.RespostaFormulario;
+//import edu.ifes.ci.si.les.sgcgs.model.RespostaCampo;
 import edu.ifes.ci.si.les.sgcgs.model.CampoDeFormulario;
 import edu.ifes.ci.si.les.sgcgs.repositories.CampoDeFormularioRepository;
 import edu.ifes.ci.si.les.sgcgs.repositories.FormularioRepository;
@@ -27,6 +29,9 @@ public class FormularioService {
 
     @Autowired
     private CampoDeFormularioRepository campoDeFormluarioRepository;
+
+	//@Autowired
+    //private RespostaCampoRepository respostaCampoRepository;
 
     public Formulario findById(Integer id) {
 		try {
@@ -79,4 +84,12 @@ public class FormularioService {
 			throw new DataIntegrityException("Não é possível excluir este Formulário!");
 		} 
 	}
+
+	//public Collection<?>findRespostas(Integer id, String data_fim, String data_inicio){
+    //    Collection<RespotaFormulario> respostas =  formularioRepository.findRespostas(id, data_fim, data_inicio);
+	//	for (RespotaFormulario resposta : respostas) {
+	//		resposta.setRespostasCampos(respostaCampoRepository.findRespostas(resposta.getId()));
+	//	}
+	//	return respostas
+    //}
 }

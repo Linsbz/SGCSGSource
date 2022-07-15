@@ -3,6 +3,7 @@ package edu.ifes.ci.si.les.sgcgs.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import edu.ifes.ci.si.les.sgcgs.model.RespostaFormulario;
+//import edu.ifes.ci.si.les.sgcgs.model.RespostaCampo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,4 +25,8 @@ public interface RespostaFormularioRepository extends JpaRepository<RespostaForm
     @Transactional(readOnly = true)
     @Query(value = "SELECT ESTADO FROM FORMULARIO WHERE ID = ?1 LIMIT 1;", nativeQuery = true)
     public boolean formularioEstaAberto(Integer formularioId);
+
+    //@Transactional(readOnly = true)
+    //@Query(value = "SELECT * FROM resposta_campo WHERE respostaformulario_id = ?1", nativeQuery = true)
+    //public Collection<RespostaCampo> findRespostas(Integer id);
 }
