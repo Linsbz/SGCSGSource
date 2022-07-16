@@ -121,18 +121,21 @@ public class SgcgsApplication implements CommandLineRunner {
 		compraTemaRepository.saveAll(Arrays.asList(ct1,ct2));
 		
 		Enquete e1 = new Enquete(null, "Melhor time do Rio", true, true, u3);
-		Enquete e2 = new Enquete(null, "Qual a sua área em TI?", true, true, u4);
+		Enquete e2 = new Enquete(null, "Qual a sua área em TI?", false, true, u4);
 		EnqueteRepository.saveAll(Arrays.asList(e1,e2));
 		
 		OpcaoVoto ov1 = new OpcaoVoto(null, "Flamengo", e1);
 		OpcaoVoto ov2 = new OpcaoVoto(null, "Vasco", e1);
 		OpcaoVoto ov3 = new OpcaoVoto(null, "Fluminense", e1);
 		OpcaoVoto ov4 = new OpcaoVoto(null, "Botafogo", e1);
-		OpcaoVotoRepository.saveAll(Arrays.asList(ov1,ov2,ov3,ov4));
+		OpcaoVoto ov5 = new OpcaoVoto(null, "Desenvolvedor", e2);
+		OpcaoVoto ov6 = new OpcaoVoto(null, "Infraestrutura", e2);
+		OpcaoVotoRepository.saveAll(Arrays.asList(ov1,ov2,ov3,ov4,ov5,ov6));
 
 		Voto v1 = new Voto(null, new Date(2022, 5, 20), ov1,e1, u2);
-		Voto v2 = new Voto(null, new Date(2022, 5, 30), ov2,e2, u4);
-		VotoRepository.saveAll(Arrays.asList(v1,v2));
+		Voto v2 = new Voto(null, new Date(2022, 5, 30), ov2,e1, u4);
+		Voto v3 = new Voto(null, new Date(2022, 5, 30), ov5,e2, u4);
+		VotoRepository.saveAll(Arrays.asList(v1,v2,v3));
 		
 		Anuncio an1 = new Anuncio(null, "Perfume", "https://www.google.com.br", "/dados/anuncio/img1", "/dados/anuncio/img2", "/dados/anuncio/img3", u2);
 		Anuncio an2 = new Anuncio(null, "Bolsa", "https://www.amazon.com.br", "/dados/anuncio/img4", "/dados/anuncio/img5", "/dados/anuncio/img6", u2);
