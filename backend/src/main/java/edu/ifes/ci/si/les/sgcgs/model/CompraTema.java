@@ -34,7 +34,7 @@ public class CompraTema implements Serializable{
 	@NotNull(message = "Data da compra deve ser preenchida")
 	@Column(length = 8)
     @Size(min = 8, max = 8, message = "Data no formato dd/mm/aaaa")
-	private Date data;
+	private Date tempo;
 
     @NotNull(message = "O Usuario do Compra Tema deve ser preenchido")
     @ManyToOne
