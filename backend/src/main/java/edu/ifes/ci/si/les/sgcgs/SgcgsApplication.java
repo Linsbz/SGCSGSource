@@ -107,9 +107,9 @@ public class SgcgsApplication implements CommandLineRunner {
 		Noticia n2 = new Noticia(null, "Tudo sobre kubernetes", "A inovação em escalonamento", "Venha saber mais sobre Kubernetes", "/dados/capa/noticias", "/tudo-sobre-kubernetes", u4);
 		noticiaRepository.saveAll(Arrays.asList(n1,n2));
 
-		PostagemNoticia p1 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n1);
-		PostagemNoticia p2 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n2);
-		PostagemNoticiaRepository.saveAll(Arrays.asList(p1,p2));
+		// PostagemNoticia p1 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n1);
+		// PostagemNoticia p2 = new PostagemNoticia(null, new Date(2022, 5, 20, 1, 42), new Date(2022, 5, 20, 1, 42), true, u4, n2);
+		// PostagemNoticiaRepository.saveAll(Arrays.asList(p1,p2));
 		
 		Tema t1 = new Tema(null, "teste", 30, false, "/dados/tema/img0");
 		Tema t2 = new Tema(null, "teste2", 50, false, "/dados/tema/img1");
